@@ -1,0 +1,1257 @@
+{% include "./home/indexH.html" %}
+{% include "./home/common/header.html" %} 
+<style>
+	canvas {
+		background:#50ac87;
+		cursor:default;
+		z-index:1;
+	}
+</style>
+		<link rel="stylesheet" href="/public/css/lotteryGame/lotteryGame.css" />  
+		<!--<link rel="stylesheet" href="/public/css/lotteryGame/site.min.css" />-->
+		<!--  彩票球部分  -->
+		<div class="lottery_game"> 
+			<div class="lot_h">
+					<div class="lot_h_i" > 
+						<div class="lot_h_i_1"><span class="lot_h_i_2 skin_color bg_color9 lot_class_name" style="display: none;">广东11选5</span>
+						</div>
+						<div class="lot_h_i_1">
+							<div class="lot_h_i_3 lot_des_text">彩种说明：10分钟一期，每天120期</div>
+							<div class="lot_h_i_3"><span class="lot_h_i_4 get_lot_date_issue">第 20170305008 期</span></div> 
+							<canvas width="500" height="110" id="canvas" style="margin-top: -17px;"></canvas>
+						</div>
+					</div>
+					<div class="lot_h_i"><img id="lot_id" src="/public/img/lotteryGame/game_1.png"/>
+						<span class="lottery_missing_btn"><span class="lot_h_i_4_icon"></span>&nbsp;遗漏分析</span>   
+					</div>
+					<div class="lot_h_i" >
+						<div class="lot_h_intro">开奖结果：</div> 
+						<div class="lot_canvas"></div>
+						<canvas class="canvas" width="1566" height="328"></canvas>  
+						<span class="lottery_lot_record">开奖记录<span class="lot_h_i_4_icon"></span> 
+							<div class="lot_rec">
+								<div class="lot_rec_title skin_color bg_color9"><span>奖期</span><span>开奖</span></div>
+								<ul class="lot_rec_list skin_color bg_color10">
+									<li class="lot_rec_item"><span>201703070102</span><span>88888</span></li>
+									<li class="lot_rec_item"><span>201703070102</span><span>88888</span></li>
+								</ul>
+							</div>
+						</span>
+						<input class="ui-input" type="text" value="" style="display: none;"/>
+					</div>
+			</div>
+		<div class="lotttery">  
+			<div class="lotttery_item">  
+				<!-- 选号部分  -->
+				<div class="lot_ball">
+					<ul class="lot_b_i lot_menu1 skin_color bg_color9" style="height: 35px;">
+						<li class="lot_b_i_i" data-id="前三直选复式,前三直选单式,前三组选复式,前三组选单式,前三组选胆拖|">三码</li>
+						<li class="lot_b_i_i" data-id="前二直选复式,前二直选单式,前二组选复式,前二组选单式,前二组选胆拖|">二码</li>
+						<li class="lot_b_i_i" data-id="">不定位</li>
+						<li class="lot_b_i_i" data-id="">定位胆</li>
+						<li class="lot_b_i_i" data-id="趣味定_单双,趣味猜_中位">趣味型</li>
+						<li class="lot_b_i_i" data-id="任选一中一,任选二中二,任选三中三,任选四中四,任选五中五,任选六中五,任选七中五,任选八中五">任选单式</li>
+						<li class="lot_b_i_i" data-id="任选一中一,任选二中二,任选三中三,任选四中四,任选五中五,任选六中五,任选七中五,任选八中五">任选复式</li>
+						<li class="lot_b_i_i" data-id="任选二中二,任选三中三,任选四中四,任选五中五,任选六中五,任选七中五,任选八中五">任选胆拖</li>
+					</ul>
+					 
+					<ul class="lot_b_i lot_menu1_ssc skin_color bg_color9" style="display: none;" style="height: 35px;">
+						<li class="lot_b_i_i" data-id="任二直选?直选复式,直选单式,直选和值|任二组选?组选复式,组选单式,组选和值">任选二</li>
+						<li class="lot_b_i_i" data-id="任三直选?直选复式,直选单式,直选和值|任三组选?组三复式,组三单式,组六复式,组六单式,混合组选,组选和值">任选三</li>
+						<li class="lot_b_i_i" data-id="任四直选?直选复式,直选单式|任四组选?组选24,组选12,组选6,组选4">任选四</li>
+					</ul>
+					<div class="lot_ball_play_f skin_color bg_color9">
+						<span class="lot_ball_play_change  active">普选</span>
+						<span class="lot_ball_play_change ">任选</span>
+					</div>
+					
+					<!--  十一选五彩票面板   -->
+					<ul class="lot_b_i lot_model" style="display: none;margin-top: 10px;"> 
+						<li class="lot_b_i_i active">前三直选复式</li>
+						<li class="lot_b_i_i">前三直选单式</li>
+						<li class="lot_b_i_i">前三组选复式</li>
+						<li class="lot_b_i_i">前三组选单式</li>
+						<li class="lot_b_i_i">前三组选胆脱</li>
+					</ul>
+					
+					
+					<!--  3d  时时彩  面板   -->
+					<ul class="lot_b_i lot_model_3d" style="display: none;margin-top: 10px;">
+						<li class="lot_model_i">
+							<span class="lot_model_i_1">三星直选</span><span class="lot_model_i_2">直选复式</span>
+							<span class="lot_model_i_2 active">直选单式</span><span class="lot_model_i_2">直选和值</span>
+						</li>
+						<li class="lot_model_i">
+							<span class="lot_model_i_1">三星组选</span><span class="lot_model_i_2">组三复式</span>
+							<span class="lot_model_i_2">组三单式</span><span class="lot_model_i_2">组六复式</span>
+							<span class="lot_model_i_2">组六单式</span><span class="lot_model_i_2">混合组选</span>
+							<span class="lot_model_i_2">组选和值</span>
+						</li>
+					</ul>
+
+					<div class="lot_num_sel">
+						<div class="lot_b_i_intro">
+							元模式单注奖金 <span class="lot_b_i_i_item single_note_bonus" data-id="1811" style="color: #f0b630;">1969.4</span>元
+							<span class="lot_b_i_i_item"><span></span>选号规则
+								<span class="sel_num_rule_arrow"></span>
+								<div class="sel_num_rule">这是选号规则，这是选号规则，这是选号规则</div>
+							</span>
+							<span class="lot_b_i_i_item"><span></span>中奖说明
+								<span class="sel_num_rule_arrow"></span>
+								<div class="winning_notes">这是中奖说明，这是中奖说明，这是中奖说明</div>
+							</span>
+						</div>
+						
+						<div class="radio_sel" style="display: none;">
+							<input type="checkbox" name="radio_num_len" value="0"/>万位<input type="checkbox" name="radio_num_len" value="1"/>千位
+							<input type="checkbox" name="radio_num_len" value="2"/>百位<input type="checkbox" name="radio_num_len" value="3"/>十位
+							<input type="checkbox" name="radio_num_len" value="4"/>个位
+							<span class="radio_sel_i1">提示：</span>你选择了<span class="radio_sel_i2 radio_sel_i2_1">1</span>个位置,系统自动根据位置组合成 <span class="radio_sel_i2 radio_sel_i2_2">1</span> 个方案。
+						</div>
+						<!--  十一选五彩票面板   -->
+						<ul class="lot_b_i lot_panel" style="display: none;"> 
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">第一位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num ">01</span>
+								<span class="lot_b_i_i_num ">02</span>
+								<span class="lot_b_i_i_num">03</span>
+								<span class="lot_b_i_i_num">04</span>
+								<span class="lot_b_i_i_num">05</span>
+								<span class="lot_b_i_i_num">06</span>
+								<span class="lot_b_i_i_num">07</span>
+								<span class="lot_b_i_i_num">08</span>
+								<span class="lot_b_i_i_num">09</span>
+								<span class="lot_b_i_i_num ">10</span>
+								<span class="lot_b_i_i_num ">11</span>
+								</span>
+								<span class="lot_b_i_i_1">
+									<span class="lot_b_i_i_sel">全</span>
+									<span class="lot_b_i_i_sel">大</span>
+									<span class="lot_b_i_i_sel">小</span>
+									<span class="lot_b_i_i_sel">奇</span>
+									<span class="lot_b_i_i_sel">偶</span>
+									<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">第二位</span> 
+								<span class="lot_b_i_i_1">  
+							<span class="lot_b_i_i_num ">01</span>
+								<span class="lot_b_i_i_num">02</span>
+								<span class="lot_b_i_i_num">03</span>
+								<span class="lot_b_i_i_num">04</span>
+								<span class="lot_b_i_i_num">05</span>
+								<span class="lot_b_i_i_num">06</span>
+								<span class="lot_b_i_i_num">07</span>
+								<span class="lot_b_i_i_num">08</span>
+								<span class="lot_b_i_i_num">09</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								</span>
+								<span class="lot_b_i_i_1">
+							<span class="lot_b_i_i_sel">全</span>
+								<span class="lot_b_i_i_sel">大</span>
+								<span class="lot_b_i_i_sel">小</span>
+								<span class="lot_b_i_i_sel">奇</span>
+								<span class="lot_b_i_i_sel">偶</span>
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li> 
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">第三位</span>
+								<span class="lot_b_i_i_1">
+							<span class="lot_b_i_i_num">01</span>
+								<span class="lot_b_i_i_num">02</span>
+								<span class="lot_b_i_i_num">03</span>
+								<span class="lot_b_i_i_num">04</span>
+								<span class="lot_b_i_i_num">05</span>
+								<span class="lot_b_i_i_num">06</span>
+								<span class="lot_b_i_i_num">07</span>
+								<span class="lot_b_i_i_num">08</span>
+								<span class="lot_b_i_i_num">09</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								</span>
+								<span class="lot_b_i_i_1">
+							<span class="lot_b_i_i_sel">全</span>
+								<span class="lot_b_i_i_sel">大</span>
+								<span class="lot_b_i_i_sel">小</span>
+								<span class="lot_b_i_i_sel">奇</span>
+								<span class="lot_b_i_i_sel">偶</span>
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">猜中位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">03</span>
+								<span class="lot_b_i_i_num">04</span>
+								<span class="lot_b_i_i_num">05</span>
+								<span class="lot_b_i_i_num">06</span>
+								<span class="lot_b_i_i_num">07</span>
+								<span class="lot_b_i_i_num">08</span>
+								<span class="lot_b_i_i_num">09</span>
+								</span>
+								<span class="lot_b_i_i_1">
+									<span class="lot_b_i_i_sel">全</span>
+									<span class="lot_b_i_i_sel">大</span>
+									<span class="lot_b_i_i_sel">小</span>
+									<span class="lot_b_i_i_sel">奇</span>
+									<span class="lot_b_i_i_sel">偶</span>
+									<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+						</ul>
+						
+						<!--  3d 选号面板  -->
+						<ul class="lot_b_i lot_panel_3d" style="display: none;margin-bottom: 15px;"> 
+							<li class="lot_b_i_i" style="height: 80px;">
+								<span class="lot_b_i_i_1">和值</span>
+								<span class="lot_b_i_i_1" style="width: 750px;">
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								<span class="lot_b_i_i_num">12</span>
+								<span class="lot_b_i_i_num">13</span>
+								<span class="lot_b_i_i_num">14</span>
+								<span class="lot_b_i_i_num">15</span>
+								<span class="lot_b_i_i_num">16</span>
+								<span class="lot_b_i_i_num">17</span>
+								<span class="lot_b_i_i_num">18</span>
+								<span class="lot_b_i_i_num">19</span>
+								<span class="lot_b_i_i_num">20</span>
+								<span class="lot_b_i_i_num">21</span>
+								<span class="lot_b_i_i_num">22</span>
+								<span class="lot_b_i_i_num">23</span>
+								<span class="lot_b_i_i_num">24</span>
+								<span class="lot_b_i_i_num">25</span>
+								<span class="lot_b_i_i_num">26</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">万位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								</span>
+								<span class="lot_b_i_i_1">
+									<span class="lot_b_i_i_sel">全</span>
+									<span class="lot_b_i_i_sel">大</span>
+									<span class="lot_b_i_i_sel">小</span>
+									<span class="lot_b_i_i_sel">奇</span>
+									<span class="lot_b_i_i_sel">偶</span>
+									<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">千位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								</span>
+								<span class="lot_b_i_i_1">
+									<span class="lot_b_i_i_sel">全</span>
+									<span class="lot_b_i_i_sel">大</span>
+									<span class="lot_b_i_i_sel">小</span>
+									<span class="lot_b_i_i_sel">奇</span>
+									<span class="lot_b_i_i_sel">偶</span>
+									<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">百位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								</span>
+								<span class="lot_b_i_i_1">
+									<span class="lot_b_i_i_sel">全</span>
+									<span class="lot_b_i_i_sel">大</span>
+									<span class="lot_b_i_i_sel">小</span>
+									<span class="lot_b_i_i_sel">奇</span>
+									<span class="lot_b_i_i_sel">偶</span>
+									<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">十位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								</span>
+								<span class="lot_b_i_i_1">
+							<span class="lot_b_i_i_sel">全</span>
+								<span class="lot_b_i_i_sel">大</span>
+								<span class="lot_b_i_i_sel">小</span>
+								<span class="lot_b_i_i_sel">奇</span>
+								<span class="lot_b_i_i_sel">偶</span>
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">个位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								</span>
+								<span class="lot_b_i_i_1">
+							<span class="lot_b_i_i_sel">全</span>
+								<span class="lot_b_i_i_sel">大</span>
+								<span class="lot_b_i_i_sel">小</span>
+								<span class="lot_b_i_i_sel">奇</span>
+								<span class="lot_b_i_i_sel">偶</span>
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i" style="height: 80px; display: none;margin-bottom: 15px;">
+								<span class="lot_b_i_i_1">和值</span>
+								<span class="lot_b_i_i_1" style="width: 800px;">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								<span class="lot_b_i_i_num">12</span>
+								<span class="lot_b_i_i_num">13</span>
+								<span class="lot_b_i_i_num">14</span>
+								<span class="lot_b_i_i_num">15</span>
+								<span class="lot_b_i_i_num">16</span>
+								<span class="lot_b_i_i_num">17</span>
+								<span class="lot_b_i_i_num">18</span>
+								<span class="lot_b_i_i_num">19</span>
+								<span class="lot_b_i_i_num">20</span>
+								<span class="lot_b_i_i_num">21</span>
+								<span class="lot_b_i_i_num">22</span>
+								<span class="lot_b_i_i_num">23</span>
+								<span class="lot_b_i_i_num">24</span>
+								<span class="lot_b_i_i_num">25</span>
+								<span class="lot_b_i_i_num">26</span>
+								<span class="lot_b_i_i_num">27</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i" style="height: 80px; display: none;">
+								<span class="lot_b_i_i_1">和值</span>
+								<span class="lot_b_i_i_1" style="width: 750px;">
+								<span class="lot_b_i_i_num">0</span>
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								<span class="lot_b_i_i_num">12</span>
+								<span class="lot_b_i_i_num">13</span>
+								<span class="lot_b_i_i_num">14</span>
+								<span class="lot_b_i_i_num">15</span>
+								<span class="lot_b_i_i_num">16</span>
+								<span class="lot_b_i_i_num">17</span>
+								<span class="lot_b_i_i_num">18</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i" style="height: 80px; display: none;">
+								<span class="lot_b_i_i_1">和值</span>
+								<span class="lot_b_i_i_1" style="width: 750px;">
+								<span class="lot_b_i_i_num">1</span>
+								<span class="lot_b_i_i_num">2</span>
+								<span class="lot_b_i_i_num">3</span>
+								<span class="lot_b_i_i_num">4</span>
+								<span class="lot_b_i_i_num">5</span>
+								<span class="lot_b_i_i_num">6</span>
+								<span class="lot_b_i_i_num">7</span>
+								<span class="lot_b_i_i_num">8</span>
+								<span class="lot_b_i_i_num">9</span>
+								<span class="lot_b_i_i_num">10</span>
+								<span class="lot_b_i_i_num">11</span>
+								<span class="lot_b_i_i_num">12</span>
+								<span class="lot_b_i_i_num">13</span>
+								<span class="lot_b_i_i_num">14</span>
+								<span class="lot_b_i_i_num">15</span>
+								<span class="lot_b_i_i_num">16</span>
+								<span class="lot_b_i_i_num">17</span>
+								</span>
+							</li>
+						</ul>
+						<!--  3d  模式 大小单双   -->
+						<ul class="lot_b_i lot_panel_3d_size" style="display: none;"> 
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">百位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">大</span>
+								<span class="lot_b_i_i_num">小</span>
+								<span class="lot_b_i_i_num">单</span>
+								<span class="lot_b_i_i_num">双</span>
+								</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i">
+								<span class="lot_b_i_i_1">十位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">大</span>
+								<span class="lot_b_i_i_num">小</span>
+								<span class="lot_b_i_i_num">单</span>
+								<span class="lot_b_i_i_num">双</span>
+								</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+							<li class="lot_b_i_i" style="display: none;">
+								<span class="lot_b_i_i_1">十位</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_num">大</span>
+								<span class="lot_b_i_i_num">小</span>
+								<span class="lot_b_i_i_num">单</span>
+								<span class="lot_b_i_i_num">双</span>
+								</span>
+								<span class="lot_b_i_i_1">
+								<span class="lot_b_i_i_sel">清</span>
+								</span>
+							</li>
+						</ul>
+						
+						
+						<div class="lot_num_input">
+							<span class="lot_num_input_1">导入注单</span>
+							<textarea placeholder="每注号码之间请用逗号（，）分号（；）或者回车键隔开"></textarea>
+							<span class="lot_num_input_btn lot_num_input_btn_dis">清除重复项</span>
+							<span class="lot_num_input_btn lot_num_input_btn_clear">清除文本框</span>
+						</div>
+						
+						<div class="qu_wei" >
+						<!--data-id  对应11选5 data-ssc-bj-repeat ssc  百家 重复号     data-ssc-bj-sz  ssc百家顺子   data-ssc-bj-ds 单双              data-ssc-bj-size="" 大小            -->
+							<span class="qu_wei_item" data-id="5" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">5单0双</span>
+							<span class="qu_wei_item" data-id="4" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">4单1双</span>
+							<span class="qu_wei_item" data-id="3" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">3单2双</span>
+							<span class="qu_wei_item" data-id="2" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">2单3双</span>
+							<span class="qu_wei_item" data-id="1" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">1单4双</span>
+							<span class="qu_wei_item" data-id="0" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">0单5双</span>
+						</div>
+				</div>
+					
+					
+					
+					
+					<div class="lot_b_i lot_bet_info">
+						<span class="lot_b_i_s">
+						<span class="lot_b_i_s_i active money_model" data-id="1">元</span>
+						<span class="lot_b_i_s_i money_model" data-id="0.1">角</span>
+						<span class="lot_b_i_s_i money_model" data-id="0.01">分</span>
+						<!--<span class="lot_b_i_s_i money_model" data-id="0.001">厘</span>-->  
+						</span>
+
+						<div class="lot_b_i_s_1">
+							<span class="lot_b_i_s_i">倍数</span>
+							<span class="lot_b_i_s_xiala">
+								<input class="mu_val" type="number" min="1" max="99999" value="1" />
+								<span class="xiala_icon"></span>
+								<ul class="xiala_list">
+									<li class="xiala_item">5</li>
+									<li class="xiala_item">10</li>
+									<li class="xiala_item">15</li>
+									<li class="xiala_item">20</li>
+									<li class="xiala_item">99999</li>
+								</ul>
+							</span>
+							<span class="lot_b_i_s_range">
+							<span class="lot_b_i_s_i" style="display: inline-block;width: 68px; ">返点: <span class="this_return_pointer" data-type="false" style="color: #f0b630;">0.0%</span></span>
+							<span class="swich_sub" style="margin-left: 0;">-</span>
+							<div class="swich active">
+								<span class="swich_slider"></span>
+							</div>
+							<span class="swich_add">+</span>
+							<span class="lot_b_i_s_i">奖金模式: <span class="lot_bonus" style="color: #f0b630;">1960</span></span>
+							</span>
+							<div class="lot_b_i_s_2">
+								您选择了<span class="lot_b_i_s_info">0</span>注，返还<span class="return_point_info">0.0000</span>元，共投注<span class="total_money">0.0000</span>元
+							</div>
+						</div>
+
+						<span class="lot_b_i_s immediate_betting">立即投注</span>
+						<span class="lot_b_i_s add_bet_num">添加号码</span>
+					</div>
+
+				</div>
+
+				<!-- 已选号码框 -->
+				<div class="been_num">
+					<div class="been_num_i">
+						<span>号码篮</span>
+						
+						<ul class="been_num_l">
+							<li class="been_num_l_i">
+								<span class="been_num_l_item">&nbsp;&nbsp;&nbsp;&nbsp;玩法</span>
+								<span class="been_num_l_item">号码</span>
+								<span class="been_num_l_item">模式</span>
+								<span class="been_num_l_item">注数</span>
+								<span class="been_num_l_item">倍数</span>
+								<span class="been_num_l_item">金额</span>
+								<span class="been_num_l_item">返点</span>
+								<span class="been_num_l_item">删除</span>
+							</li>
+							<!--<li class="been_num_l_i">
+								<span class="been_num_l_item">十一选五，前三直选</span>
+								<span class="been_num_l_item">56789|45678|23456|12345|12345</span>
+								<span class="been_num_l_item">元</span>
+								<span class="been_num_l_item">3265注</span>
+								<span class="been_num_l_item">100倍</span>
+								<span class="been_num_l_item">￥3125.0000</span>
+								<span class="been_num_l_item">返点4560.0000</span>
+								<span class="been_num_l_item delete"></span>
+							</li>-->
+						<ul>
+						<div class="been_num_none">
+							<span class="been_num_none_icon"></span>
+							<span class="been_num_none_text">您的号码篮空空如也~我还等着你中奖呢！</span>
+						</div>
+					</div>
+					<div class="been_num_i">
+						<div class="been_num_i_1">
+							<div class="been_num_i_2">返点总金额</div>
+							<div class="been_num_i_2">共<span class="been_num_i_2_val" id="been_num_i_2_val">0.0000</span>元</div>
+						</div>
+						<div class="been_num_i_1">
+							<div class="been_num_i_3">投注总金额</div>
+							<div class="been_num_i_3"><span class="been_num_i_3_val">0</span>注，共<span class="been_num_i_3_val bet_total_money_val">0.0000</span>元</div>
+							<span class="been_num_i_1_btn bet_num_clear">清空号码</span><span class="been_num_i_1_btn chase_bet_num">追号投注</span>
+							<div class="been_num_i_3"><span class="been_num_i_1_confirm">确认投注</span></div>
+						</div>
+					</div>
+				</div>
+
+				<!--投注记录 -->
+				<div class="bet_rec">
+					<!--<div class="bet_rec_title">游戏记录</div>-->
+					<div class="table">
+						<ul class="table_title">
+							<li class="how_bet_record_i">
+								<span>游戏</span>
+								<span>奖期</span>
+								<span>玩法</span>
+								<span>赔率</span>
+								<span>方案</span>
+								<span>注单金额</span>
+								<span>开奖号码</span>
+								<span>状态</span>
+								<span>中奖金额</span>
+								<span>操作</span>
+							</li>
+						</ul>
+						<ul id="show_bet_record">
+							
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+
+		<!--彩票开奖记录  -->
+		<!--<div class="lot_rec lotttery_item">
+			<div class="lot_rec_title skin_color bg_color9"><span>奖期</span><span>开奖</span></div>
+			<ul class="lot_rec_list skin_color bg_color10">
+				<li class="lot_rec_item"><span>201703070102</span><span>88888</span></li>
+				<li class="lot_rec_item"><span>201703070102</span><span>88888</span></li>
+			</ul>
+		</div>-->
+		</div>
+	</div>
+
+
+
+
+
+<!--  弹窗  -->
+<div class="popus_bg" style="display: none;"></div>
+
+<!-- 余额不足   -->
+<div class="popus popus_money_l" style="display: none;">
+	<span class="popus_title" >温馨提示-下单失败</span>
+	<div class="popus_con">
+		<span class="poput_icon"></span>
+		<span class="poput_text">余额不足</span>
+	</div>
+	<span class="popus_close">关闭</span>
+</div>
+<!--  直属总代不可以投注-->
+<div class="popus total_agent" style="display: none;">
+	<span class="popus_title" >温馨提示-下单失败</span>
+	<div class="popus_con">
+		<span class="poput_icon"></span>
+		<span class="poput_text">直属总代不可以下注！</span>
+	</div>
+	<span class="popus_close">关闭</span>
+</div>
+<!-- 单注下注金额不能低于0.5元 -->
+<div class="popus bet_money_set" style="display: none;">
+	<span class="popus_title" >温馨提示</span>
+	<div class="popus_con">
+		<span class="poput_icon"></span>
+		<span class="poput_text">单注下注金额不能低于0.5元 ！</span>
+	</div>
+	<span class="popus_close">确认</span>
+</div>
+<!-- 下注成功  -->
+<div class="popus popus_bet_success" style="display: none;">
+	<span class="popus_title">温馨提示-下单成功</span>
+	<div class="popus_con">
+		<span class="poput_icon"></span>
+		<span class="poput_text">下注成功</span>
+	</div>
+	<span class="popus_close">关闭</span>
+</div>
+
+<!-- 确认投注  -->
+<div class="popus popus_bet_confirm" style="display: none;">
+	<span class="popus_title">温馨提示-确定订单</span>
+	<div class="popus_con">
+		<div class="popus_con_item">彩种：重庆时时彩</div>
+		<div class="popus_con_item">付款总金额：￥1000.0000</div>
+	</div>
+	<span class="popus_confirm">确认</span>
+	<span class="popus_cancel">取消</span>
+</div>
+<!--  当前期过期提示  -->
+<div class="popus this_bet_been" style="display: none;"> 
+	<span class="popus_title">温馨提示</span>
+	<div class="popus_con">
+		<div class="popus_con_item">当前期结束，是否要清空号码篮内容？</div>
+		<div class="popus_con_item">清空号码篮请点击确认按钮!</div>
+	</div>
+	<span class="popus_confirm">确认</span>
+	<span class="popus_cancel">取消</span>
+</div>
+<!-- 导入注单弹窗    -->
+<div class="popus popus_import_file" style="display: none;">
+	<span class="popus_title">文件载入</span>
+	<div class="popus_con">
+		<input type="file" class="popus_file" />
+		<span class="popus_import_file_remind">文件格式错误，只支持[txt,csv]类型的文件</span>
+	</div>
+	<span class="popus_confirm">确认</span>
+	<span class="popus_cancel">取消</span>
+</div>
+
+<div class="popus popus_input_num" style="display: none;">
+	<span class="popus_title">注单错误</span>
+	<div class="popus_con">
+		<span style="font-size: 14px;">已过滤错误选号！</span>
+		<span class="popus_import_file_remind">文件格式错误，只支持[txt,csv]类型的文件</span>
+	</div>
+	<span class="popus_confirm" style="margin-left: 150px;">确认</span>
+</div>
+	
+<!--  追号弹窗  -->
+<div class="chase" style="display: none;"> 
+	<div class="chase_title"><span class="chase_t_i active">同倍追号</span><span class="chase_t_i">利润率追号</span><span class="chase_t_i">翻倍追号</span><div class="is_stop_bet"><input type="checkbox"/>中奖停止追号</div></div>
+	<div class="chase_info chase_info_0">
+		起始倍数<input class="start_mu_val" type="number" min="1" value="1" max="99999"  /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		追号期数<input class="chase_the_num" type="number" min="1" value="1" max="100"  /><span class="chase_info_btn">生成追号计划</span>
+	</div>
+	<div class="chase_info chase_info_1" style="display: none;">
+		起始倍数<input class="start_mu_val" type="number" min="1" value="1" max="99999"  /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		最低收益率<input class="chse_get_val" type="number" min="1" value="50" max="100"  />% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		追号期数<input class="chase_the_num" type="number" min="1" value="1" max="9999"  /><span class="chase_info_btn">生成追号计划</span>
+	</div>
+	<div class="chase_info chase_info_2" style="display: none;"> 
+		起始倍数<input class="start_mu_val" type="number" min="1" value="1" max="99999"  />&nbsp;&nbsp;&nbsp;隔<input class="chase_jian_ge_num" type="number" min="1" value="1" max="100"  />期
+			 倍x<input class="chase_num_mu_val" type="number" min="1" value="1" max="100"  />
+		追号期数<input class="chase_the_num" type="number" min="1" value="1" max="100"  /><span class="chase_info_btn">生成追号计划</span>
+	</div>
+	<ul class="chase_num_l">
+		<li class="chase_num_t"><span>序号</span><span>选择</span><span>追号期次</span><span>倍数</span><span>金额</span><span>开奖时间</span></li>
+		<!--<li class="chase_num_item">
+			<span>1</span><span><span class="check_box"></span></span><span>201705050120</span><span><input type="number" value="1" min="0" max="99999" />倍</span><span>￥5555.0000</span><span>2017-03-20 14:29:11</span>
+		</li>-->
+	</ul>
+	<div class="chase_result">共追期<span class="chase_result_1">0</span>期,<span class="chase_result_1">0</span>注，总投注金额<span class="chase_result_1">0</span>元</div>
+	<span class="chase_btn chase_confirm">投注</span><span class="chase_btn chase_cancel">取消</span>
+</div>
+
+
+<!--  投注记录弹窗    -->
+<div class="game_record_popus"> 
+	<div class="g_r_p_title"><span>游戏记录</span></div>
+	<ul class="g_r_p_l">
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i g_r_p_i_specail"><span class="g_r_p_key">选号明细 :</span><span>4553as4d6f4as3f4d64as6d4f563asd4f85</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+	</ul>
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<!-- 声音 -->
+<audio id="audio_time" style="display: none;" src="/public/audio/daoTime.wav"></audio>
+<audio id="audio_lot" style="display: none;" src="/public/audio/lotNum.wav"></audio>
+
+<script>
+ 
+	var t = setInterval(function(){
+		if(window.kaisi){
+			window.kaisi([1,2,3,4,5]);
+			clearInterval(t);
+		}
+	},10);
+	window.numbers = " 等 待 开 奖 "; 
+//	setTimeout(function(){
+//		 window.numbers = "01 02 03 04 05";
+//		 S.init();
+//	},10000);
+</script>
+<script type="text/javascript" src="/public/js/lotteryGame/shape-shifter.js" ></script>
+<script type="text/javascript" src="/public/js/lotteryGame/lotteryNoteCal.js" ></script>
+<script src="/public/js/lotteryGame/changeLotteryPanel.js"></script>
+<script src="/public/js/lotteryGame/lotteryGame.js"></script>
+<script src="/public/js/lotteryGame/inputBetCal.js"></script>
+<!--<script src="/public/js/lotteryGame/bundle.js"></script>-->
+
+<script type="text/javascript" src="/public/js/xingduole/xingduole.js" ></script>
+
+
+<script>
+var Clock = (function() {
+        
+    // private variables
+    var canvas, // canvas element
+        ctx, // canvas context
+        bgGrad = false, // background gradient flag
+        gradient, // gradient (background)
+        height = 115, // canvas height
+        key = {up: false, shift: false}, // key presses
+        particles = [], // particle array
+        particleColor = 'hsla(0, 0%, 100%, 0.3)', // particle color
+        mouse = {x: 0, y: 0}, // position of mouse / touch
+        press = false, // pressed flag
+        quiver = false, // quiver flag
+        text, // the text to copy pixels from
+        textSize = 70, // (initial) textsize
+        valentine = false, // valentine-ify it for a bit?
+        msgTime = 100, // time to show a message before returning to clock
+        updateColor = true, // update color of gradient / particles with time?
+        width = 500; // canvas width
+    
+    // Constants
+    var FRAME_RATE = 20, // frames per second target
+        MIN_WIDTH = 500, // minimum width of canvas
+        MIN_HEIGHT = 115, // minimum height of canvas
+        PARTICLE_NUM = 600, // (max) number of particles to generate
+        RADIUS = Math.PI * 2; // radius of particle
+    
+    var defaultStyles = function() {
+        textSize = 70;
+        // particle color
+        particleColor = 'hsla(0, 0%, 100%, 0.3)'; 
+
+        // color stops
+        var gradientStops = { 
+            0: '#333333',
+            0.5: '#222222'
+        };
+
+        // create gradient
+        setGradient(gradientStops);
+    };
+    
+    var draw = function(p) {
+//  	ctx.clearRect(0,0,200,200);
+        ctx.fillStyle = "#efefef";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.5, 0, RADIUS, true);
+        ctx.closePath();
+        ctx.fill();
+    };
+    
+    var explode = function() {
+        for(var i = 0, l = particles.length; i < l; i++) {
+            var p = particles[i];
+
+            if(p.inText) {
+
+                var ax = mouse.x - p.px,
+                ay = mouse.y - p.py,
+                angle = Math.atan2(ay, ax),
+                polarity,
+                C = Math.cos(angle),
+                S = Math.sin(angle);
+
+                // change polarity
+                // attract particles if mouse pressed, repel if shift + mousedown
+                polarity = (key.shift === true) ? -1 : 1;
+
+                p.x += polarity * (Math.pow((C-1), 2) -1) + p.velocityX * p.delta;
+                p.y += polarity * (Math.pow((S-1), 2) -1) + p.velocityY * p.delta;
+
+                // set previous positions
+                p.px = p.x;
+                p.py = p.y;
+
+                draw(p);
+            }
+        }
+    };
+
+    var getTime = function(amPM) {
+    	var thisTimeHover = (new Date()).getHours(); //定义当前时间
+
+		if((Clock.oMinutes=="00"&&Clock.oSeconds=="00"&&Clock.oHours=="00")||Clock.oMinutes<=0){
+			$(".ui-input").val(" 等 待 开 奖 ").trigger("click");
+			getlotTime();
+				
+		}
+		
+		if(Clock.oMinutes=="00"&&Clock.oSeconds=="04"&&Clock.oHours=="00"){
+			var audio_time = document.getElementById("audio_time").play();  // 倒计时音效
+		}
+		
+		
+		if(Clock.oSeconds=="00"&&Clock.oMinutes!="00"){
+			Clock.oSeconds = 59;
+			Clock.oMinutes = Clock.oMinutes -1;
+		}else{
+			Clock.oSeconds = Clock.oSeconds - 1;
+		}
+		if(Clock.oMinutes=="00"&&Clock.oHours!="00"){
+			Clock.oSeconds = 59;
+			Clock.oMinutes = Clock.oMinutes -1;
+		}
+		
+		if((Clock.oMinutes+"").length==1)
+			Clock.oMinutes = "0"+Clock.oMinutes;
+		if((Clock.oHours+"").length==1)
+			Clock.oHours = "0"+Clock.oHours;
+		if((Clock.oSeconds+"").length==1)
+			Clock.oSeconds = "0"+Clock.oSeconds;
+		
+         Clock.time =  {
+            hours: Clock.oHours,
+            minutes: Clock.oMinutes,
+            seconds: Clock.oSeconds,
+            timeString: Clock.oHours + " : " + Clock.oMinutes + " : " + Clock.oSeconds
+        };
+        
+    };
+    
+
+    // animation loop
+    var loop = function() {
+      
+        // clear out text
+        ctx.clearRect(0, 0, width, height);
+
+        var time = "";
+		if(Clock.time)
+        	time =  Clock.time;
+        else{
+        	time = {
+	            hours: "00",
+	            minutes: "00",
+	            seconds: "00",
+	            timeString: "00" + " : " + "00" + " : " + "00"
+        	};
+        }
+
+        textSize = 70;
+
+        // draw text on canvas
+        if(valentine === true) {
+            if(msgTime > 0) {
+                textSize = 70;
+                text = '?';
+                msgTime--;
+            } else {
+                text = time.timeString;
+            }
+            // valentine-ify it by setting hue to pink
+            setStyles(300);
+
+        } else if(updateColor === true && bgGrad === true) {
+            // changing color with time
+            // @TODO: come up with something better, this is a hacky implementation
+            var color = time.hours + time.minutes + time.seconds;
+            setStyles(color);
+            text = time.timeString;
+        } else {
+            defaultStyles();
+            text = time.timeString;
+        }
+      
+        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.textBaseline = "middle";
+        ctx.font = textSize + "px 'Avenir', 'Helvetica Neue', 'Arial', 'sans-serif'";
+        ctx.fillText(text, (width - ctx.measureText(text).width) * 0.5, height * 0.5);
+
+        // copy pixels
+        var imgData = ctx.getImageData(0, 0, width, height);
+      
+        // clear canvas, again
+        ctx.clearRect(0, 0, width, height);
+
+        if(bgGrad === true) {
+            // draw gradient
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+        }
+
+        if(press === false) {
+            // reset particles
+            for(var i = 0, l = particles.length; i < l; i++) {
+                var p = particles[i];
+                p.inText = false;
+            }
+            particleText(imgData);
+        } else {
+            explode();
+        }
+        FPS.update('fps');
+    };
+
+    var pad = function(number) {
+        return ('0' + number).substr(-2);
+    };
+
+    var particleText = function(imgData) {
+
+        var pxls = [];
+        for(var w = width; w > 0; w-=6) {
+            for(var h = 0; h < width; h+=6) {
+                var index = (w+h*(width))*4;
+                if(imgData.data[index] > 10) {
+                    pxls.push([w, h]);
+                }
+            }
+        }
+
+        var count = pxls.length;
+        for(var i = 0; i < pxls.length && i < particles.length; i++) {
+            try {
+                var p = particles[i], 
+                    X, 
+                    Y;
+                
+                if(quiver) {
+                    X = (pxls[count-1][0]) - (p.px + Math.random() * 5);
+                    Y = (pxls[count-1][1]) - (p.py + Math.random() * 5);
+                } else {
+                    X = (pxls[count-1][0]) - p.px;
+                    Y = (pxls[count-1][1]) - p.py;
+                }
+          
+                // tangent
+                var T = Math.sqrt(X*X + Y*Y);
+
+                // arctangent
+                var A = Math.atan2(Y, X);
+              
+                // cosine
+                var C = Math.cos(A);
+              
+                // sine
+                var S = Math.sin(A);
+              
+                // set new postition
+                p.x = p.px + C * T * p.delta;
+                p.y = p.py + S * T * p.delta;
+              
+                // set previous positions
+                p.px = p.x;
+                p.py = p.y;
+          
+                p.inText = true;
+          
+                // draw the particle
+                draw(p);
+          
+                if(key.up === true) {
+                    p.size += 0.3;
+                } else {
+                    var newSize = p.size - 0.5;
+                    if(newSize > p.origSize && newSize > 0) {
+                        p.size = newSize;
+                    } else {
+                        p.size = m.origSize;
+                    }
+                }
+            } catch(e) {
+                //console.log(e);
+            }
+            count--;
+        }
+    };
+
+    var setCoordinates = function(e) {
+        if(e.offsetX) {
+            return { x: e.offsetX, y: e.offsetY }; // use offset if available
+        } else if (e.layerX) {
+            return { x: e.layerX, y: e.layerY }; // firefox... make sure to position the canvas
+        } else {
+            // iOS. Maybe others too?
+            return { x: e.pageX - canvas.offsetLeft, y: e.pageY - canvas.offsetTop };
+        }
+    };
+
+    // set dimensions of canvas
+    var setDimensions = function () {
+//      width = Math.max(window.innerWidth, MIN_WIDTH);
+//      height = Math.max(window.innerHeight, MIN_HEIGHT);
+		
+
+        // Resize the canvas
+//      canvas.width = width;
+//      canvas.height = height;
+//
+//      canvas.style.position = 'absolute';
+//      canvas.style.left = '0px';
+//      canvas.style.top = '0px';
+    };
+
+    var setGradient = function(gradientStops) {
+      
+        // create gradient
+        gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width);
+      
+        // iterate through colorstops
+        for (var position in gradientStops) {
+            var color = gradientStops[position];
+            gradient.addColorStop(position, color);
+        }
+    };
+
+    var setStyles = function(hue) {
+        // color stops
+        var gradientStops = { 
+            0: 'hsl(' + hue + ', 100%, 100%)',
+            0.5: 'hsl(' + hue +', 10%, 50%)'
+        };
+
+        // change particle color
+        particleColor = 'hsla(' + hue + ', 10%, 50%, 0.3)';
+
+        // create gradient
+        setGradient(gradientStops);
+    };
+
+    /** 
+     * Public Methods
+     */
+    return {
+
+        init: function(canvasID) {
+        	
+        	getlotTime();
+        	
+            canvas = document.getElementById(canvasID);
+            // make sure canvas exists and that the browser understands it
+            if(canvas === null || !canvas.getContext) {
+                return;
+            }
+            // set context
+            ctx = canvas.getContext("2d");
+      
+            // set dimensions
+            setDimensions();
+        
+            // ui
+//          this.ui();
+        
+            for(var i = 0; i < PARTICLE_NUM; i++) {
+                particles[i] = new Particle(canvas);
+            }   
+        
+            // show FPS
+            FPS.initialize(canvas, 'fps');
+        
+            // set defaults
+            defaultStyles();
+        
+            // let's do this
+            setInterval(loop, FRAME_RATE);
+        	
+        	setInterval(getTime,1000);
+        },
+      	
+      	
+      	
+        ui: function() {
+        
+            window.addEventListener('resize', function(e){
+                setDimensions();
+            }, false);
+
+        }
+      
+    };
+    
+  })();
+  var getlotTime = function(){
+    	// 获取当前时间
+            var lotClass = $(".lot_class_name").text();
+				var rePointType = "";
+				if(lotClass == "福彩3D") {
+					rePointType = "低频彩";
+				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
+					rePointType = "十一选五";
+				} else {
+					rePointType = "时时彩";
+				}
+			$.ajax({
+				type: 'GET',
+				url:'/game/lottery/get-current-issue?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text(),
+				dataType: "json",
+				cache:false,
+				success: function(data) {  
+					
+			        Clock.oHours = parseInt(data.left/(60*60)%24);//获取小时数 
+			        
+			        Clock.oMinutes = parseInt(data.left/60%60); //获取分钟数
+			        
+			        Clock.oSeconds = parseInt(data.left%60);//获取秒数
+			        
+			        $(".get_lot_date_issue").html("第"+data.expect+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投注截止时间：");
+					$(".lot_h_intro").html("第"+(data.expect-1)+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开奖结果："); 
+				},
+				error: function(e) {
+					console.log(e);
+				}
+			});
+    };
+  // Create new particles
+  var Particle = function(canvas) {
+  
+        var range = Math.random() * 180 / Math.PI, // random starting point
+            spread = canvas.height, // how far away from text should the particles begin?
+            size = Math.random() * 7; // random size of particle
+    
+        this.delta = 0.25;
+        this.x = 0;
+        this.y = 0;
+    
+        // starting positions
+        this.px = (canvas.width / 2) + (Math.cos(range) * spread);
+        this.py = (canvas.height / 2) + (Math.sin(range) * spread);
+    
+        this.velocityX = Math.floor(Math.random() * 10) - 5;
+        this.velocityY = Math.floor(Math.random() * 10) - 5;
+    
+        this.size  = size;
+        this.origSize = size;
+    
+        this.inText = false;
+    
+  };
+  
+  var FPS = {
+
+    // defaults
+    delta: 0,
+    lastTime: 0,
+    frames: 0,
+    totalTime: 0,
+    updateTime: 0,
+    updateFrames: 0,
+
+    initialize: function(canvasID, fpsID) {
+        this.lastTime = (new Date()).getTime();
+        if(!document.getElementById(fpsID) && document.getElementById(canvasID)) {
+            this.createFPS(canvasID, fpsID);
+        }
+    },
+
+    // create FPS div if needed
+    createFPS: function(canvasID, fpsID) {
+        var div = document.createElement('div');
+        div.setAttribute('id', fpsID);
+        var canvas = document.getElementById(canvasID);
+        var parent = canvas.parentNode;
+        div.innerHTML = "FPS AVG: 0 CURRENT: 0";
+        parent.appendChild(div);
+    },
+
+    // update FPS count
+    update: function(fpsID) {    
+        var now = (new Date()).getTime();
+        this.delta = now - this.lastTime;
+        this.lastTime = now;
+        this.updateTime += this.delta;
+        this.totalTime += this.delta;
+        this.frames++;
+        this.updateFrames++;
+//      document.getElementById(fpsID).innerHTML = "FPS Average: " + Math.round(1000 * this.frames / this.  totalTime) + " Current: " + Math.round(1000 * this.updateFrames / this.updateTime);
+        this.updateTime = 0; // reset time
+        this.updateFrames = 0; // reset frames
+    }
+
+};
+
+Clock.init('canvas');</script>
+{% include "./home/common/footer.html" %}
+
+{% include "./home/indexF.html" %}

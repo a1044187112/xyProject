@@ -1,0 +1,253 @@
+*{
+    padding:0;
+    margin:0;
+}
+html,body{
+	height: 100%;
+	min-width: 1200px;
+	font-family: 'Microsoft Yahei',Tahoma,Arial,Helvetica,Simsun,STHeiti;
+	word-break: normal;
+	overflow: hidden;
+}
+
+.con{
+	width: 100%;
+	height: 100%;
+	min-width: 1200px;
+	/*background: url(/public/img/login/bg-.png);
+	background-position: center 0;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;*/
+	/* 兼容Webkit内核浏览器如Chrome和Safari */
+	/* 兼容Opera */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 4000;
+}
+.con .con_info{
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+.con .con_info .con_login{
+	display: inline-block;
+	width: 310px;
+	position: relative;
+	font-size: 0;
+	text-align: left;
+	/*margin-top: 10%;*/
+}
+.con .con_info .con_login img{
+	margin-bottom: 34px;
+	margin-left: 35px;
+	width: 70%;
+}
+.con .con_info .con_login .input{
+	display: block;
+	height: 40px;
+	width: 293px;
+	padding-left: 15px;
+	line-height: 40px;
+	color: white;
+	border-radius: 10px;
+	background: rgba(255,255,255,0.3);
+	font-size: 16px;
+	font-family: "微软雅黑";
+	position: relative;
+	
+}
+.con .con_info .con_login .input:nth-child(3){
+	margin-top: 20px;
+}
+.con .con_info .con_login .input input{
+	display: inline-block;
+	width: 235px;
+	height: 40px; 
+	line-height: 40px;
+	border: none;
+	background: rgba(255,255,255,0);
+	outline: none;
+	color: white;
+	padding-left: 10px;
+}
+.yan_z_m_val{
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	letter-spacing: 2px;
+	color: white;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+	background: rgba(0,0,0,0.3);
+	font-size: 14px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.con .con_info .con_login .modity_text{
+	color:#FF0000;
+	font-size: 12px;
+	margin-top: 18px;
+	visibility: hidden;
+}
+.con .con_info .con_login .welcome{
+	margin-top: 14px;
+	font-family: "微软雅黑";
+	color: #96ccf2;
+	font-size: 16px;
+}
+ .xian_lu_jian_che{
+ 	font-family: "微软雅黑";
+	color: white; 
+	font-size: 18px;
+	text-decoration: underline;
+	margin-left: 120px;
+	cursor: pointer;
+ }
+.con .con_info .con_login .submit{
+	display: block;
+	text-align: center;
+	margin-top: 14px;
+	height: 50px;
+	line-height: 50px;
+	width: 308px;
+	border-radius: 10px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	color: white;
+	background: url(/xyProject/public/img/login/an.png);
+	cursor: pointer;
+}
+.con .con_info .con_login .submit:active{
+	background: url(/xyProject/public/img/login/an-.png);
+}
+
+
+
+
+.cus_service{
+	position: fixed;
+	top: 40%;
+	right: 34px;
+	display: block;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: url(/xyProject/public/img/login/kf.png) no-repeat;
+	cursor: pointer;
+	text-align: center;
+	z-index: 10000;
+}
+.cus_service:active{ 
+	background: url(/xyProject/public/img/login/kf-.png);
+}
+
+.star{
+	position: absolute;
+	z-index: 500;
+}
+.bower{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	padding-bottom: 30px;
+	width: 100%;
+	z-index: 10000;
+}
+.bower .bower_item{
+	font-size: 14px;
+	color: white;
+	width: 100%;
+}
+.bower .bower_item:first-child a{
+	display: inline-block;
+	margin-left: 15px;
+	cursor: pointer;
+	padding-bottom: 5px;
+	border: none;
+}
+.bower .bower_item:first-child a img{
+	width: 36px;
+	height: 36px;
+	border: none;
+}
+
+
+.register{
+	width: 400px !important;
+	text-align: center;
+}
+
+.register .input{
+	background: rgba(255,255,255,0) !important;
+	width: 650px !important;
+}
+.register .input input{
+	width: 290px !important;
+	border-radius: 10px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 15px;
+	background: rgba(255,255,255,0.3) !important;
+}
+.register .register_submit{
+	display: inline-block;
+	width: 100px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+	color: white;
+	background: #1c4467;
+	border-radius: 6px;
+	margin-top: 50px;
+	margin-left: 190px;
+	cursor: pointer;
+}
+.register .input span{
+	color:red;
+	font-size: 12px;
+	margin-left: 12px;
+}
+.register .regiter_succ{
+	margin-left: 12px;
+	font-size: 12px;
+	color: red;
+}
+::-webkit-input-placeholder{
+	color: white;
+	font-size: 12px;
+}
+.dowload{
+	width: 100%;
+	margin-top: 50px;
+	font-size: 0;
+}
+.dowload .dowload_item{
+	display: inline-block;
+	width: 40%;
+	text-align: right;
+	margin-left: 20px;
+}
+.dowload .dowload_item:nth-child(2){
+	text-align: left;
+	margin-right: 20px;
+}
+.dowload .dowload_item img{
+	width: 160px !important;
+}
+.dowload .dowload_item span{
+	display: inline-block;
+	width: 160px;
+	font-size: 16px;
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+}

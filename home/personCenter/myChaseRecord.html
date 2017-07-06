@@ -1,0 +1,81 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/personCenter/DataManagement.css" />
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">个人中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="DataManagement.html">资料管理</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="bankCardMan.html">银行卡管理</a>
+			</li>
+			<!--<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myRecharge.html">我的充值</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myPresent.html">我的提现</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<!--<li class="dm_con_m_i active">
+				<a href="javascript:;">追号记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="accoundChangeRecorde.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">个人报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="thisWebsiteTransfer.html">站内转账</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="infomation.html">站内信</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="websiteInfo.html">网站信息</a>
+			</li>
+		</ul>
+		<div class="dm_container">
+			<div class="require">
+				<span>游戏时间</span><input id="date1" type="date" value="2017-05-05" /><span>至</span><input id="date2" type="date" value="2017-05-05" />
+				<span>游戏名称 : </span>
+				<select>
+					<option>所有游戏</option><option>重庆时时彩</option><option>新疆时时彩</option><option>天津时时彩</option><option>山东11选5</option>
+					<option>广东11选5</option><option>江西11选5</option><option>多乐秒秒彩</option><option>多乐一分彩</option><option>多乐三分彩</option>
+					option>多乐秒秒彩</option><option>多乐五分彩</option><option>多乐十分彩</option>option>多乐11选5</option><option>福彩3D</option>
+				</select><span class="data_require bg_color2 skin_color">搜索</span>
+			</div>
+			<div class="table">
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<th>追号编号</th>
+						<th>下单时间</th>
+						<th>彩种及玩法</th>
+						<th>追号信息</th>
+						<th>追号金额（元）</th>
+						<th>状态</th>
+					</tr>
+					<tr>
+						<td>halibabab</td>
+						<td>2071-05-01 10:00:00</td>
+						<td>ad24d54f3s45df85asf4sdf45</td>
+						<td>第三方支付</td>
+						<td>200元</td>
+						<td>0元</td>
+					</tr>
+				</table>
+			</div>
+			<div id="pag"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/public/js/personCenter/DataManagment.js"></script>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<script type="text/javascript" src="/public/js/personCenter/main.js"></script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

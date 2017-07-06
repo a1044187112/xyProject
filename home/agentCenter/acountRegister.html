@@ -1,0 +1,166 @@
+
+<!--<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />-->
+
+<!--<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountList.html">用户列表</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">团队报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>-->
+		<div class="ac">
+			<div class="dm_second_menu">
+				<span class="dm_s_m_i active">用户注册</span>
+				<span class="dm_s_m_i">链接注册</span>
+				<span class="dm_s_m_i">链接管理</span>
+			</div>
+			<div class="acc_regis">
+				<ul class="mod_login_pwd mod_pwd">
+					<li class="mod_login_pwd_i"><span>设置登录账户 :</span><input class="login_pwd" type="text" /><span class="new_pwd_mod" style="color: red;">账户最多不少于5个字符!</span></li>
+					<li class="mod_login_pwd_i"><span>设置登录密码 :</span><input class="new_login_pwd" type="password"  /><span class="new_pwd_com"  style="color: red;margin-left: 15px;display: none;font-size: 12px;">请输入密码！</span></li>
+					<li class="mod_login_pwd_i"><span>确认登录密码 :</span><input class="confirm_login_pwd" type="password"  /><span class="new_pwd_com">(两次密码不一样，请重新输入)</span></li>
+					<li class="mod_login_pwd_i"><span>账户类型 :</span><select id="acount_type"><option data-type="会员">会员用户</option><option data-type="代理">代理用户</option></select></li>
+				</ul>
+				<div class="dm_second_menu">
+					<span class="dm_s_m_i active">彩种返点设置</span>
+				</div>
+				<ul class="ret_point_set">
+					<li class="r_p_s_i"><span>时时彩 : </span>
+						<select id="sscai">
+							<option data-val="0.02">1920(返点2%)</option>
+							<option data-val="0.015">1930(返点1.5%)</option>
+							<option data-val="0.01">1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>十一选五 : </span>
+						<select id="elsel5">
+							<option data-val="0.02">1920(返点2%)</option>
+							<option data-val="0.015">1930(返点1.5%)</option>
+							<option data-val="0.01">1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>低频彩 : </span>
+						<select id="fc3d">
+							<option data-val="0.02">1920(返点2%)</option>
+							<option data-val="0.015">1930(返点1.5%)</option>
+							<option data-val="0.01">1940(返点1%)</option>
+						</select>
+					</li>
+				</ul>
+				<span class="acc_rigis_btn">生成账户</span><br />
+				<span class="ac_regis_remind">提示： 会员添加后，可以再次编辑提升返点，但不能编辑降低返点</span>
+			</div>
+			
+			<div class="link_regis" style="display: none;">
+				<ul class="mod_login_pwd mod_pwd" style="margin-top: 20px;">
+					<li class="mod_login_pwd_i"><span>账户类型 :</span><select><option>会员用户</option><option>代理用户</option></select></li>
+					<li class="mod_login_pwd_i"><span>链接有效期 :</span><select><option>1天</option><option>1周</option><option>1个月</option><option>永久有效</option></select></li>
+				</ul>
+				<div class="dm_second_menu">
+					<span class="dm_s_m_i active" >彩种返点设置</span>
+				</div>
+				<ul class="ret_point_set">
+					<li class="r_p_s_i"><span>时时彩 : </span>
+						<select id="sscai_link">
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>十一选5 : </span>
+						<select id="elsel5_link">
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>低频彩 : </span>
+						<select id="fc3d_link">
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+				</ul>
+				<span class="acc_rigis_btn">生成链接</span><br />
+				<div class="link"><input class="link_deltai" value="http://192.168.1.127:8080/home/agentCenter/acountRegister.html"></input><span class="link_ctrl_c">复制</span></div>
+			</div>
+			
+			<div class="link_info" style="display: none;">
+				<div class="link_ifo_remind">您还没有生成注册链接，请先生成注册链接！</div>
+				<table class="link_table link" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>渠道</th>
+						<th>链接</th>
+						<th>开户类型</th>
+						<th>状态</th>
+						<th>返点</th>
+						<th>有效期</th>
+						<th>生成时间</th>
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td>推广</td>
+						<td><input class="link_deltai" value="http://192.168.1.127:8080/home/agentCenter/acountRegister.html"></input><span class="link_ctrl_c">复制</span></td>
+						<td>会员</td>
+						<td>正常</td>
+						<td>0%</td>
+						<td>永久有效</td>
+						<td>2017-03-05 10:00:00</td>
+						<td class="link_del">删除</td>
+					</tr>
+					<tr>
+						<td>推广</td>
+						<td><input class="link_deltai" value="http://192.168.1.127:8080/home/agentCenter/acountRegister.html"></input><span class="link_ctrl_c">复制</span></td>
+						<td>会员</td>
+						<td>正常</td>
+						<td>0%</td>
+						<td>永久有效</td>
+						<td>2017-03-05 10:00:00</td>
+						<td class="link_del">删除</td>
+					</tr>
+				</table>
+				<div id="pag"></div>
+			</div>
+		</div>
+	<!--</div>
+</div>-->
+<div class="popus_bg" style="display: none;"></div> 
+<div class="game_record_popus register_fail">
+	<div class="g_r_p_title"><span>注册失败</span></div>
+	<div class="register_fail_remind" style="height: 100px;text-align: center;line-height: 110px;">会员账户已经存在</div>			
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<div class="game_record_popus register_success" style="display: none;">
+	<div class="g_r_p_title"><span>注册成功</span></div>
+	<div class="register_fail_remind" style="height: 100px;text-align: center;line-height: 110px;">注册成功！</div>			
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<script type="text/javascript" src="/public/js/agentCenter/acountRegister.js"></script>
+<!--<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>-->

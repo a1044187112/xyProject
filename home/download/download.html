@@ -1,0 +1,58 @@
+{% include "./home/indexH.html" %}
+{% include "./home/common/header.html" %} 
+<style>
+	.dl{
+		background: url(/public/img/header/bg_green.jpg);
+	background-position: center 0;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	width: 100%;
+	padding-top: 40px;
+	padding-bottom: 50px;
+	margin-top: 68px;
+	}
+	.dl .dl_info{
+		width: 1200px;
+		text-align: center;
+		margin: auto;
+		background: white;  
+		height: 600px;
+		padding-top: 30px;
+	}
+	.dl .dl_info .dl_info_i{
+		padding-top: 20px;
+		width: 240px;
+		display: inline-block;
+	}
+	.dl .dl_info .dl_info_i img{
+		width: 200px;
+	}
+	.dl .dl_info .dl_info_i span{
+		font-size: 16px;
+	}
+</style>
+<div class="dl">
+	<div class="dl_info">
+		<div class="dl_info_i">
+			<img src="/public/img/login/android.png" /><br />
+			<span>安卓下载</span>
+		</div>
+		<div class="dl_info_i">
+			<img src="/public/img/login/android.png" /><br />
+			<span>安卓下载</span>
+		</div>
+	</div>
+</div>
+<script>
+	function pageStyleInit(){
+		$(".con_menu .con_menu_item").removeClass("active");
+		$($(".con_menu .con_menu_item")[5]).addClass("active");
+	}
+	pageStyleInit();
+</script>
+
+{% include "./home/common/footer.html" %}
+
+{% include "./home/indexF.html" %}

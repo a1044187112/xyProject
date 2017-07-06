@@ -1,0 +1,122 @@
+
+<!--<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountList.html">用户列表</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">团队报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>-->
+		<div class="ac">
+			<div class="dm_second_menu">
+				<span class="dm_s_m_i active">团队报表</span>
+				<span class="dm_s_m_i">分红报表</span>
+				<!--<span class="dm_s_m_i">个人报表</span>-->
+			</div>
+			
+			<div class="team">
+				<div class="ac_require" style="margin-top: 20px;">
+					<span class="first_span">游戏时间：</span><input id="date1" type="text"  /><span>至</span><input id="date2" type="text"/>&nbsp;<span>排序:</span>
+					<select style="width: 150px;"><option>盈利从大到小</option><option>亏损从大到小</option><option>投注从大到小</option><option>中奖从大到小</option>
+						<option>活动从大到小</option><option>充值从大到小</option><option>提现从大到小</option><option>返点从大到小</option>
+					</select>
+					<span>用户名：</span><input id="member_id" type="text"/><span class="ac_require_btn bg_color2 skin_color">查询</span>
+				</div>
+				<table cellpadding="0" cellspacing="0" id="team_table">
+					<tr>
+						<th>用户名</th>
+						<th>用户余额</th>
+						<th>充值金额</th>
+						<th>提款金额</th>
+						<th>消费量</th>
+						<th>中奖</th>
+						<th>返点</th>
+						<th>活动</th>
+						<th>盈亏</th>
+					</tr>
+					<!--<tr>
+						<td>sdf</td>
+						<td>100</td>
+						<td>afsd</td>
+						<td>sdfasdf</td>
+						<td>sdfasdf</td>
+						<td>asdfasdf</td>
+						<td>af</td>
+						<td>sdf</td>
+						<td>￥-5.00</td>
+					</tr>-->
+					<tr>
+						<td>总计</td>
+						<td>100</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0.0000</td>
+					</tr>
+				</table>
+			</div>
+			
+			<!-- 分红报表  -->
+			<div class="dividends" style="display: none;">   
+				<div class="ac_require" style="margin-top: 20px;">
+					<span class="first_span">游戏时间：</span><input id="date1" type="date" value="2017-05-05" /><span>至</span><input id="date1" type="date" value="2017-05-05"/>
+					<select style="width: 120px;"><option>查询自身</option><option>查询下级</option></select>
+					<span>用户名：</span><input style="width: 100px;" type="text"/>
+					<span>平台：</span><select style="width: 150px;"><option>全部</option><option>AG平台</option><option>PT平台</option></select>
+					<span class="ac_require_btn bg_color2 skin_color">查询</span>
+				</div>
+				<table cellpadding="0" cellspacing="0">
+					<th>用户名</th>
+					<th>转入</th>
+					<th>转出</th>
+					<th>消费量</th>
+					<th>中奖金额</th>
+					<th>返水</th>
+					<th>分红</th>
+					<th>盈亏</th>
+				</table>
+			</div>
+			<div class="ac_al_remind"></div>
+			<div id="pag"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<!--<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>-->
+<script type="text/javascript" src="/public/js/agentCenter/reportQuery.js" ></script> 
+<script>
+	function init(){
+		$(".date_f").remove();
+		dateSelect.init();
+	}
+	init();
+</script>

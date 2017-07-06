@@ -1,0 +1,195 @@
+.bank_card_transfer{
+	width: 100%;
+}
+.bank_card_transfer .b_c_t_title{
+	width: 100%;
+	text-align: center;
+	margin-top: 25px;
+	color: 000;
+	font-size: 24px;
+	font-weight: 600;
+}
+.bank_card_transfer .img1{
+	display: block;
+	width: 260px;
+	height: 100px;
+	margin: auto;
+	margin-top: 10px;
+}
+.bank_card_transfer .b_c_t_list{
+	width: 500px;
+	margin: auto;
+	margin-top: 15px;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info{
+	width: 100%;
+	font-size: 0;
+	border-bottom: 1px solid #696969;
+	margin-top: 10px;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info span{
+	display: inline-block;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info .b_c_t_key{
+	text-align: right;
+	width: 83px;
+	font-size: 14px;
+	color: #696969;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info .b_c_t_value{
+	font-size: 14px;
+	font-weight: 600;
+	color: #000;
+	margin-left: 10px;
+	width: 300px;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info .b_c_t_copy{
+	height: 26px;
+	width: 80px;
+	background: #20635c;
+	font-size: 14px;
+	color: white;
+	vertical-align: bottom;
+	margin-bottom: 2px;
+	text-align: center;
+	line-height: 26px;
+	border-radius: 3px;
+	margin-left: 23px;
+	cursor: pointer;
+}
+.bank_card_transfer .b_c_t_list .b_c_t_info .b_c_t_copy:hover{
+	background: #00BD8A;
+}
+
+.bank_card_transfer .b_c_t_r_t{
+	display: block;
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	font-size: 20px;
+	color: red;
+	font-weight: 600;
+}
+.bank_card_transfer .b_c_t_r{
+	width: 70%;
+	margin: auto;
+	margin-top: 5px;
+	font-size: 14px;
+}
+.bank_card_transfer .b_c_t_v{
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+	color: #000;
+	margin-top: 20px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #000;
+}
+.bank_card_transfer .b_c_t_m{
+	width: 700px;
+	margin: auto;
+	padding-top: 25px;
+	margin-left: 350px;
+}
+.bank_card_transfer .b_c_t_m .b_c_t_m_list .b_c_t_m_info .b_c_t_key{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	line-height: 35px;
+	font-size: 14px;
+	margin-right: 8px;
+}
+.bank_card_transfer .b_c_t_m .b_c_t_m_list .b_c_t_m_info input{
+	display: inline-block;
+	width: 200px;
+	height: 26px;
+	padding-left: 10px;
+	border: 1px solid #696969;
+	margin-top: 10px;
+	font-size: 12px;
+}
+.bank_card_transfer .b_c_t_m .b_c_t_m_list .b_c_t_m_info .b_c_t_value{
+	font-size: 12px;
+}
+.bank_card_transfer .b_c_t_m .b_c_t_m_list .b_c_t_m_info textarea{
+	width: 380px;
+	height: 70px;
+	padding: 5px 0 0 10px;
+	height: 70px;
+	outline: none;
+	resize: none;
+	vertical-align: top;
+	margin-top: 15px;
+}
+.bank_card_transfer .b_c_t_m .acc_rigis_btn{
+	margin-left: 120px;
+}
+
+
+.bank_card_online_pay{
+	width: 80%;
+	margin: auto;
+	margin-top: 25px; 
+}
+.bank_card_online_pay .b_c_o_p_t{
+	color: #000;
+}
+.bank_card_online_pay .b_c_o_p_t1{
+	color: #696969;
+	font-size: 13px;
+	margin-top: 3px;
+}
+.bank_card_online_pay .b_c_o_p_list{
+	margin-top: 20px;
+	font-size: 0;
+	text-align: left;
+}
+.bank_card_online_pay .b_c_o_p_list .b_c_o_p_i{
+	display: inline-block;
+	width: 108px;
+	height: 33px;
+	border:1px solid #c6c6c6;
+	margin-left: 30px;
+	margin-top: 10px;
+	position: relative;
+	padding-left: 22px;
+	cursor: pointer;
+}
+.bank_card_online_pay .b_c_o_p_list .b_c_o_p_i:hover{
+	border: 1px solid #00B10B;
+}
+.bank_card_online_pay .b_c_o_p_list .b_c_o_p_i img{
+	height: 33px;
+	vertical-align: middle;
+}
+ .bank_card_online_pay .b_c_o_p_list .b_c_o_p_i input{
+ 	position: absolute;
+ 	top: 10px;
+ 	left: 5px;
+ }
+ .bank_card_online_pay .b_c_t_m_info{
+ 	width: 94%;
+ 	margin: auto;
+ 	margin-top: 30px;
+ }
+ .bank_card_online_pay .b_c_t_m_info input{
+ 	height: 26px;
+ 	padding-left: 10px;
+ }
+ .bank_card_online_pay .b_c_t_m_info .b_c_t_value{
+ 	font-size: 13px;
+ }
+ .bank_card_online_pay  .acc_rigis_btn{
+ 	margin-left: 350px;
+ }
+.bank_card_online_pay_2 .b_c_o_item{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 7px;
+	color: #000;
+}
+.bank_card_online_pay_2 {
+	padding-top: 30px;
+}

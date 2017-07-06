@@ -1,0 +1,124 @@
+
+<!--<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />-->
+<style type="text/css">
+	#page_table tr td:nth-child(5) div{
+		width: 120px !important;
+		white-space: nowrap;
+    	text-overflow: ellipsis;
+    	overflow: hidden;
+	}
+</style>
+<!--<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountList.html">用户列表</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">团队报表</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>-->
+		<div class="ac">
+			<div class="dm_second_menu">
+				<span class="dm_s_m_i active">团队游戏记录</span>
+				<span class="dm_s_m_i">团队追号记录</span>
+				<!--<span class="dm_s_m_i">个人游戏记录</span>
+				<span class="dm_s_m_i">个人追号记录</span>-->
+			</div>
+			
+			<div class="ac_require" style="margin-top: 20px;">
+				<span class="first_span">游戏时间：</span><input id="date1" type="text" style="width: 120px;" /><span>至：</span><input id="date2" type="text"   style="width: 120px;"/>
+				<span class="first_span">&nbsp;&nbsp;&nbsp;用户名：</span><input id="member_id" type="text" style="width: 120px;"/>
+				<span>游戏名称：</span><select id="game_type" style="width: 120px;"><option>所有游戏</option><option>重庆时时彩</option><option>新疆时时彩</option><option>天津时时彩</option>
+					<option>山东11选5</option><option>广东11选5</option><option>江西11选5</option><option>多乐秒秒彩</option><option>多乐一分彩</option>
+					<option>多乐三分彩</option><option>多乐五分彩</option><option>多乐十分彩</option><option>多乐11选5</option><option>福彩3D</option>
+				</select>
+				<span>状态：</span><select id="game_state" style="width: 120px;"><option>所有</option><option>未开奖</option><option>未中奖</option><option>中奖</option></select>
+				<span class="ac_require_btn bg_color2 skin_color">查询</span>
+			</div>
+			<table cellpadding="0" cellspacing="0" id="page_table">
+				<tr>
+					<th>订单号</th>
+					<th>用户名</th>
+					<th>游戏与玩法</th>
+					<th>投注时间</th>
+					<th>投注号码</th>
+					<th>单注金额</th>
+					<th>倍数</th>
+					<th>投注金额</th>
+					<th>奖金</th>
+					<th>开奖号码</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+				<!--<tr>
+					<td>sdf</td>
+					<td>afsd</td>
+					<td>sdfasdf</td>
+					<td>sdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td>af</td>
+					<td>sdf</td>
+					<td>在线</td>
+					<td>查看</td>
+				</tr>-->
+			</table>
+			<div class="ac_al_remind"></div>
+			<div id="pag"></div>
+		</div>
+	<!--</div>
+</div>-->
+
+<div class="popus_bg" style="display: none;"></div>
+
+<div class="game_record_popus record">
+	<div class="g_r_p_title"><span>游戏记录</span></div>
+	<ul class="g_r_p_l">
+		<!--<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>-->
+	</ul>
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<!--<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>-->
+<script type="text/javascript" src="/public/js/agentCenter/gameRecord.js"></script>
+<script>
+	function init(){
+		$(".date_f").remove();
+		dateSelect.init();
+	}
+	init();
+</script>

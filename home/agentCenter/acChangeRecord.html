@@ -1,0 +1,79 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="acountList.html">用户列表</a>
+			</li>
+			<!--<li class="dm_con_m_i active">
+				<a href="javascript:;">账变记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="reportQuery.html">团队报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<!--<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color15 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>
+		<div class="ac">
+			<div class="ac_require">
+				<span class="first_span">账变类型：</span><select style="width: 120px;"><option>全部</option><option>投注扣款</option><option>账户充值</option>
+					<option>账户提现</option><option>提现失败返款</option><option>追号扣款</option><option>游戏返点</option><option>奖金派发</option><option>充值下级</option>
+					<option>赠送礼金</option><option>冻结资金</option><option>分红</option><option>手工充值</option><option>上级充值</option><option>充值手续费</option>
+					<option>其他</option><option>上下级转账</option><option>刮奖</option><option>下级活动</option><option>下级分红</option><option>我的活动</option>
+					<option>我的分红</option>
+				</select>
+				<span >时间范围：</span><input type="date" value="2017-05-05" /><span>至：</span><input type="date" value="2017-05-05"/><span >账变编号：</span><input type="text"/>
+				<span class="ac_require_btn bg_color12 skin_color">查询</span>
+			</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>帐变编号</th>
+					<th>时间</th>
+					<th>类型</th>
+					<th>收入</th>
+					<th>支出</th>
+					<th>变动前余额</th>
+					<th>变动后余额</th>
+					<th>备注</th>
+					<th>查看</th>
+				</tr>
+				<tr>
+					<td>sdf</td>
+					<td>afsd</td>
+					<td>sdfasdf</td>
+					<td>sdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+					<td class="bg_color2 skin_color">查看</td>
+				</tr>
+			</table>
+			<div class="ac_al_remind">总收入 ：￥0.0000 &nbsp;&nbsp; &nbsp;  总支出 ：￥0.0000</div>
+			<div id="pag"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

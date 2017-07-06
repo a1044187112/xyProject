@@ -1,0 +1,113 @@
+
+<link rel="stylesheet" href="/public/css/personCenter/DataManagement.css" />
+
+<!--<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">个人中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="DataManagement.html">资料管理</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="bankCardMan.html">银行卡管理</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">个人报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="thisWebsiteTransfer.html">站内转账</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="infomation.html">站内信</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="websiteInfo.html">网站信息</a>
+			</li>
+		</ul>-->
+		<div class="dm_container">
+			<div class="require">
+				<span>操作时间</span><input id="date1" type="text"  /><span>至</span><input id="date2" type="text"  />
+				<span>查询类型</span><select class="require_type" style="width: 120px;">
+					<option>全部</option><option>投注扣款</option><option>账户充值</option>
+					<option>账户提现</option><option>追号扣款</option><option>游戏返点</option><option>奖金派发</option>
+					<option>赠送礼金</option><option>冻结资金</option><option>分红</option>
+					<option>上下级转账</option><option>刮奖</option><option>下级分红</option><option>我的活动</option>
+					<option>我的分红</option><option>电艺游戏</option><option>其他</option>
+				</select><span class="data_require bg_color2 skin_color">查询</span>
+			</div>
+			<div class="table">
+				<table cellpadding="0" cellspacing="0" class="last_cursor">
+					<tr>
+						<th>订单编号</th>
+						<th>用户名</th>
+						<th>时间</th>
+						<th>操作类型</th>
+						<th>变动金额</th>
+						<th>变动前金额</th>
+						<th>变动后金额</th>
+						<th>说明</th>
+						<th>查看</th>
+					</tr>
+					<!--<tr>
+						<td>ad24d54f3s45df85asf4sdf45</td>
+						<td>halibabab</td>
+						<td>2071-05-01 10:00:00</td>
+						<td>彩票游戏</td>
+						<td>游戏投注</td>
+						<td class="lose_money">-100.00</td>
+						<td>彩票下注冻结中</td>
+						<td>查看</td>
+					</tr>
+					<tr>
+						<td>ad24d54f3s45df85asf4sdf45</td>
+						<td>halibabab</td>
+						<td>2071-05-01 10:00:00</td>
+						<td>彩票游戏</td>
+						<td>游戏投注</td>
+						<td class="win_money">+100.00</td>
+						<td>彩票下注冻结中</td>
+						<td>查看</td>
+					</tr>-->
+				</table>
+			</div>
+			<div id="pag">
+				
+			</div>
+		</div>
+	<!--</div>
+</div>-->
+<div class="popus_bg" style="display: none;"></div>
+
+<div class="game_record_popus">
+	<div class="g_r_p_title"><span>游戏记录</span></div>
+	<ul class="g_r_p_l">
+		<!--<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>
+		<li class="g_r_p_i"><span class="g_r_p_key">会员名 :</span><span class="g_r_p_val">halibaba</span></li>-->
+	</ul>
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<!--<script type="text/javascript" src="/public/js/personCenter/DataManagment.js"></script>-->
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<!--<script type="text/javascript" src="/public/js/personCenter/main.js"></script>-->
+<script type="text/javascript" src="/public/js/personCenter/accoundChangeRecorde.js"></script>
+<script>
+	function init(){
+		$(".date_f").remove();
+		dateSelect.init();
+	}
+	init();
+</script>

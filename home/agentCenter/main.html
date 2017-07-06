@@ -1,0 +1,54 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color acountRegister">
+				开户注册
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color acountList">
+				用户列表
+			</li>
+			<!--<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color reportQuery">
+				团队报表
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color gameRecord">
+				游戏记录
+			</li>
+			<!--<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color teamAllInfo">
+				团队总览
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color teamBalance">
+				团队余额
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color quotaManagement">
+				配额管理
+			</li>
+		</ul>
+		<div id="app_dom"></div>
+	</div>
+</div>
+<div class="popus_bg" style="display: none;"></div>
+<div class="game_record_popus register_fail">
+	<div class="g_r_p_title"><span>注册失败</span></div>
+	<div class="register_fail_remind" style="height: 100px;text-align: center;line-height: 110px;">会员账户已经存在</div>			
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<div class="game_record_popus register_success">
+	<div class="g_r_p_title"><span>注册成功</span></div>
+	<div class="register_fail_remind" style="height: 100px;text-align: center;line-height: 110px;">注册成功！</div>			
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<script type="text/javascript" src="/public/js/agentCenter/acountRegister.js"></script>
+<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

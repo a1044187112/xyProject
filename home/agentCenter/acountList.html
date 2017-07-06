@@ -1,0 +1,148 @@
+
+<!--<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />-->
+
+<!--<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">用户列表</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">团队报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="chaseRecord.html">追号记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color ">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>-->
+		<div class="ac">
+			<div class="ac_require">
+				<span class="first_span">用户名：</span><input type="text" style="width: 120px" /><span>账户余额：</span><input type="number" style="width: 120px" /><span class="span_1">至</span><input type="number" style="width: 120px"/>
+				<span class="first_span">会员范围：</span><select id="agent_type" style="width: 100px"><option data-type="直属">直属会员</option><option data-type="全部">全部会员</option></select>
+				<span>排序：</span><select style="width: 120px"><option>注册时间排序</option><option>注册时间逆序</option><option>余额从大到小</option><option>余额从小到大</option>
+				<option>登录次数从大到小</option><option>返点从大到小</option></select>
+				<span class="ac_require_btn bg_color2 skin_color">查询</span>
+			</div>
+			<table cellpadding="0" cellspacing="0" id="account_list">
+				<tr>
+					<th>用户名</th>
+					<th>余额</th>
+					<th>返点</th>
+					<th>注册时间</th>
+					<th>最近登录时间</th>
+					<th>登录次数</th>
+					<th>代理</th>
+					<th>状态</th>
+					<th>操作</th>
+				</tr>
+				<!--<tr>
+					<td>sdf</td>
+					<td>afsd</td>
+					<td>sdfasdf</td>
+					<td>sdfasdf</td>
+					<td>asdfasdf</td>
+					<td>af</td>
+					<td>sdf</td>
+					<td><img src="/public/img/agentCenter/zaixian.png"></td>
+					<td><span class="ac_al_tb_btn bg_color2 skin_color">编辑</span></td>
+				</tr>-->
+			</table>
+			<div class="ac_al_remind"></div>
+			<div id="pag"></div>
+		</div>
+	<!--</div>
+</div>-->
+
+<div class="popus_bg" style="display: none;"></div><br />
+<div class="game_record_popus user_edit">
+	<div class="g_r_p_title"><span>用户编辑</span></div>
+				<ul class="ret_point_set" style="padding-left: 145px !important;" >
+					<li class="r_p_s_i" ><span>会员登录名 : </span><span style="font-size: 14px;">onedo</span></li>
+					<li class="r_p_s_i" ><span>时时彩 : </span>
+						<select id="sscai">
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>十一选5 : </span>
+						<select id="elsel5"> 
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i"><span>低频彩 : </span>
+						<select id="fc3d">
+							<option>1920(返点2%)</option>
+							<option>1930(返点1.5%)</option>
+							<option>1940(返点1%)</option>
+						</select>
+					</li>
+					<li class="r_p_s_i  r_p_s_i_remind" style="color: red;font-size: 12px;padding-left: 50px;visibility: visible;">修改返点失败！</li> 
+				</ul>
+	<div class="user_xia_re_btn"><span class="btn_con">确认</span><span class="btn_cancel">取消</span></div>
+</div>
+
+
+<div class="game_record_popus team_balance">
+	<div class="g_r_p_title"><span>团队余额</span></div>
+		<ul class="ret_point_set" style="padding-left: 145px !important;" >
+			<li class="r_p_s_i" ><span>会员登录名 : </span><span style="font-size: 14px;">onedo</span></li>
+			<!--<li class="r_p_s_i" ><span>昵称 : </span><span style="font-size: 14px;">onedo</span></li>-->
+			<li class="r_p_s_i" ><span>当前团队余额 : </span><span style="font-size: 14px;">155645 RMB</span></li>
+		</ul>
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+
+
+<div class="game_record_popus user_bet_info" style="display: none;width: 1000px;">
+	<div class="g_r_p_title"><span>最近十五天发展情况</span></div>
+	<div class="g_r_p_preport"><span class="preport_item active">个人报表</span><span class="preport_item">团队报表</span></div>
+	<div class="preport_title">最近15天【onedo】个人发展状况</div>
+	<ul class="preport_list">
+		<li class="preport_item"><span>日期</span><span>总充值</span><span>总提现</span><span>投注</span><span>中奖</span><span>返点</span><span>活动</span><span>盈亏</span></li>
+		<li class="preport_item"><span>20170405</span><span>￥10000.0</span><span>￥8000.0</span><span>￥500.0</span><span>￥7000.0</span><span>￥0.500</span><span>￥18.0</span><span>-500.0</span></li>
+	</ul>
+	<div class="g_r_p_btn"><span>关闭</span></div>
+</div>
+
+<!-- 给下级充值 -->
+<div class="game_record_popus user_xia_re">
+	<div class="g_r_p_title"><span style="font-size: 14px;">用户充值</span></div>
+		<ul class="ret_point_set" style="padding-left: 145px !important;" >
+			<li class="r_p_s_i" ><span>会员登录名 : </span><span style="font-size: 14px;" class="to_id">onedo</span></li>
+			<!--<li class="r_p_s_i" ><span>昵称 : </span><span style="font-size: 14px;">onedo</span></li>-->
+			<li class="r_p_s_i" ><span>您的账号余额 : </span><span style="font-size: 14px;" class="now_money"  >155645 RMB</span></li>
+			<li class="r_p_s_i" ><span>充值金额 : </span><input class="to_money" type="number" style="margin-right: 10px;height: 26px;
+				padding-left: 10px; width: 120px;">单位 (元)</li> 
+				<li class="r_p_s_i" ><span>资金密码 : </span><input class="to_password" type="password" style="margin-right: 10px;height: 26px;
+				padding-left: 10px; width: 120px;"></li> 
+			<li class="r_p_s_i" ><span>备注 : </span><textarea class="comment_textarea" style="vertical-align: top; width: 150px;"></textarea></li>
+		</ul>
+	<div class="user_xia_re_btn" style="padding: 20px 0 50px 0;"><span class="btn_con">确认</span><span class="btn_cancel">取消</span></div>
+</div>
+
+
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<!--<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>-->
+<script type="text/javascript" src="/public/js/agentCenter/acountList.js"></script>
+

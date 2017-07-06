@@ -1,0 +1,82 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/personCenter/DataManagement.css" />
+	<style>
+		.table tr td:first-child,table tr th:first-child{
+			padding-left: 50px !important;
+		}
+		.table tr td:nth-child(4),table tr th:nth-child(4){
+			padding-right: 50px;
+			text-align: right;
+		}
+		.table tr td:nth-child(2),table tr th:nth-child(2),
+		.table tr td:nth-child(3),table tr th:nth-child(3){
+			text-align: center;
+		}
+		.table tr td:nth-child(4) span{
+			width: 55px;
+			text-align: center;
+			display: inline-block; 
+		}
+		.table tr td:first-child span{
+			display: inline-block;
+			margin-left: -25px;
+		}
+	</style>
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">提现</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="recharge.html">用户充值</a>
+			</li> 
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myRecharge.html">我的充值</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="withdraw.html">用户提现</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">我的提现</a>
+			</li>
+		</ul>
+		<div class="dm_container">
+			<div class="require">
+				<span>操作时间</span><input id="date1" type="text"  /><span>至</span><input id="date2" type="text"  />
+				<span>查询类型</span>
+				<select>
+					<option>所有</option>
+					<option>成功</option>
+					<option>待处理</option>
+				</select><span class="data_require bg_color2 skin_color">搜索</span>
+			</div>
+			<div class="table" >
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<th>申请日期</th>
+						<th>申请编号</th>
+						<th>申请金额</th>
+						<th>处理状态</th>
+					</tr>
+					<tr>
+						<td><span>2071-05-01 10:00:00</span></td>
+						<td>ad24d54f3s45df85asf4sdf45</td>
+						<td>200元</td>
+						<td><span>成功</span></td>
+					</tr>
+				</table>
+			</div>
+			<div id="pag">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/public/js/personCenter/DataManagment.js"></script>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<!--<script type="text/javascript" src="/public/js/personCenter/main.js"></script>-->
+<script>
+	dateSelect.init();
+</script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

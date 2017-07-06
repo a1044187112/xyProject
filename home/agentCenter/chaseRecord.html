@@ -1,0 +1,72 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">代理中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountRegister.html">开户注册</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="acountList.html">用户列表</a>
+			</li>
+			<!--<li class="dm_con_m_i">
+				<a href="acChangeRecord.html">账变记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">团队报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<!--<li class="dm_con_m_i active">
+				<a href="javascript:;">追号记录</a>
+			</li>-->
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamAllInfo.html">团队总览</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="teamBalance.html">团队余额</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="quotaManagement.html">配额管理</a>
+			</li>
+		</ul>
+		<div class="ac">
+			<div class="ac_require">
+				<span class="first_span">游戏时间：</span><input type="date" value="2017-05-05" /><span>至：</span><input type="date" value="2017-05-05"/><span>用户名：</span><input type="text"/>
+				<span>游戏名称：</span><select style="width: 120px;"><option>重庆时时彩</option><option>新建时时彩</option><option>天津时时彩</option>
+					<option>山东11选5</option><option>广东11选5</option><option>江西11选5</option><option>多乐秒秒彩</option><option>多乐一分彩</option>
+					<option>多乐三分彩</option><option>多乐五分彩</option><option>多乐十分彩</option><option>多乐11选5</option><option>福彩3D</option>
+				</select>
+				<!--<span>玩法：</span><select style="width: 120px;"><option>所有玩法</option><option>五星直选</option><option>五星复式</option><option>五星组合</option></select>-->
+				<span class="ac_require_btn bg_color2 skin_color">查询</span>
+			</div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th>追号编号</th>
+					<th>下单时间</th>
+					<th>彩种及玩法</th>
+					<th>追号信息</th>
+					<th>追号金额</th>
+					<th>状态</th>
+				</tr>
+				<tr>
+					<td>sdf</td>
+					<td>afsd</td>
+					<td>sdfasdf</td>
+					<td>sdfasdf</td>
+					<td>asdfasdf</td>
+					<td>asdfasdf</td>
+				</tr>
+			</table>
+			<div class="ac_al_remind"></div>
+			<div id="pag"></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/public/js/personCenter/pag.js" ></script>
+<script type="text/javascript" src="/public/js/agentCenter/main.js"></script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

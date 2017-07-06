@@ -1,0 +1,90 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+<style>
+	.remind_l{
+		border-bottom: 1px solid #000;
+		padding-bottom: 15px;
+	}
+	.remind_l .remind_i,.remind_l{
+		width: 100%;
+		padding-left: 50px;
+	}
+	.remind_l .remind_i{
+		height: 36px;
+	}
+	.remind_l .remind_i span:first-child{
+		display: inline-block;
+		width: 30%;
+		text-align: right;
+		vertical-align: middle;
+		margin-right: 10px;
+		font-size: 12px;
+	}
+	.remind_l .remind_i span:nth-child(2){
+		display: inline-block;
+		width: 55%;
+		text-align: left;
+		font-size: 12px; 
+	}
+	big{
+		color: red;
+	}
+</style>
+ 
+
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">提现</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="recharge.html">用户充值</a>
+			</li> 
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myRecharge.html">我的充值</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">用户提现</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myPresent.html">我的提现</a>
+			</li>
+		</ul>
+		<div class="ac">
+		 	<ul class="remind_l">
+		 		<li class="remind_i"><span class="remind_i_i">使用提示 :</span><span class="remind_i_i">1、每天限提现 <big>5</big> 次，今天您已经成功发起了 <big>0</big>次提现申请。</span></li>
+		 		<li class="remind_i"><span class="remind_i_i"></span><span class="remind_i_i">2、全天 24 小时 提现。</span></li>
+		 		<li class="remind_i"><span class="remind_i_i"></span><span class="remind_i_i">3、新绑定的提现银行卡需要超过 <big>6</big> 小时才能正常提款。</span></li>
+		 		<li class="remind_i"><span class="remind_i_i"></span><span class="remind_i_i">4、一个账户只能绑定同一个开户人姓名的银行卡。 </span></li>
+		 	</ul>
+		 	<ul class="mod_login_pwd mod_pwd" style="width: 700px; margin-top: 40px;" >
+					<li class="mod_login_pwd_i"><span>可用余额 :</span><span style="margin-left: 30px;color: red;">128.65</span><span class="new_pwd_mod" style="display: inline-block;">RMB</span></li>
+					<li class="mod_login_pwd_i"><span>收款银行 :</span>
+						<select style="margin-left: 26px ;">
+							<option>建设银行 | 银行卡尾数 8616</option>
+						</select>
+					</li>
+					<li class="mod_login_pwd_i"><span>提现金额 :</span><input class="confirm_login_pwd" type="number"  /><br /> <span class="new_pwd_com" style="display: inline-block; color: #696969;margin-left: 80px;">
+						(最小提现金额 <big style="color: red;">100</big> / 最多提现金额 <big style="color: red;">49999</big> RMB)</span></li>
+					<li class="mod_login_pwd_i"><span>资金密码 :</span><input class="new_login_pwd" type="password" /></li>
+				</ul>
+			<span class="acc_rigis_btn">下一步</span>
+		</div>
+	</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

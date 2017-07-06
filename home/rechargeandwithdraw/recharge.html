@@ -1,0 +1,97 @@
+{% include "./home/indexH.html" %} {% include "./home/common/header.html" %}
+
+<link rel="stylesheet" href="/public/css/agentCenter/acountRegister.css" />
+<link rel="stylesheet" href="/public/css/info/info.css" />
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">充值</span></div>
+		<ul class="dm_con_menu">
+			
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">用户充值</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myRecharge.html">我的充值</a>
+			</li>
+			<li class="dm_con_m_i  bg_color14 skin_color">
+				<a href="withdraw.html">用户提现</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myPresent.html">我的提现</a>
+			</li>
+		</ul>
+		<div class="ac">
+		 	<div class="dm_second_menu">
+				<span class="dm_s_m_i active">在线支付</span>
+				<span class="dm_s_m_i">银行卡转账</span>
+				<span class="dm_s_m_i">在线支付1</span>
+			</div>
+			<div class="bank_card_online_pay">
+				<div class="b_c_o_p_t">银行网银</div>
+				<div class="b_c_o_p_t1">支持以下银行借记卡，贷记卡</div>
+				<ul class="b_c_o_p_list">
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+					<li class="b_c_o_p_i"><input type="radio" name="bank_card" /><img src="/public/img/info/ICBC.jpeg"/></li>
+				</ul>
+				<div class="b_c_t_m_info"><span class="b_c_t_key">汇款人姓名：</span><span class="b_c_t_value"><input type="number" />&nbsp;&nbsp; 元  (单笔最小充值金额 <big style="color: red;">100</big> RMB / 最大充值金额 <big style="color: red;">50,00</big> RMB )</span></div>
+				<span class="acc_rigis_btn">确认充值</span><br />
+			</div>
+			
+			
+			<div class="bank_card_transfer" style="display: none;">
+				<div class="b_c_t_title">银行卡转账充值</div>
+				<img class="img1" src="/public/img/info/ICBC.jpeg">
+				<ul class="b_c_t_list">
+					<li class="b_c_t_info"><span class="b_c_t_key">收款银行：</span><span class="b_c_t_value">工商银行</span><span class="b_c_t_copy">复制</span></li>
+					<li class="b_c_t_info"><span class="b_c_t_key">收款姓名：</span><span class="b_c_t_value">某某</span><span class="b_c_t_copy">复制</span></li>
+					<li class="b_c_t_info"><span class="b_c_t_key">收款卡号：</span><span class="b_c_t_value">123456789</span><span class="b_c_t_copy">复制</span></li>
+					<li class="b_c_t_info"><span class="b_c_t_key">开户行：</span><span class="b_c_t_value">这是开户行地址</span><span class="b_c_t_copy">复制</span></li>
+					<li class="b_c_t_info"><span class="b_c_t_key">附言码：</span><span class="b_c_t_value">3456434wnn</span><span class="b_c_t_copy">复制</span></li>
+				</ul>
+				<span class="b_c_t_r_t">充值说明：</span>
+				<div class="b_c_t_r">
+					1. 本系统支持网银或者手机银行转账，<span style="color: red;">禁止使用ATM、微信支付宝等第三方转账</span>，支持金额为<span style="color: red;">100-50,000元</span>否则我们无法给您上分，导致的后果由您本人承担。
+				</div>
+				<div class="b_c_t_r">
+					2. 转账时请在<span style="color: red;">附言(转账说明）中填写上方的附言码</span>附言码是我们收款和上分的关键信息，请准确填入，否则无法给您及时上分。<span style="color: red;">到账时间约30分钟</span>30分钟后未充值成功请联系客服
+				</div>
+				<div class="b_c_t_r">
+					3. 我方收款卡可能会随时进行更换，<span style="color: red;">再次充值时需从官方充值页面重新提交</span>不能通过截图或者银行交易记录向本账户转账，否则造成的后果由您承担。
+				</div>
+				<div class="b_c_t_v">完成转账后，请填写下面的表格并提交。</div>
+				
+				<div class="b_c_t_m" style="padding-bottom: 40px;"> 
+					<ul class="b_c_t_m_list">
+						<li class="b_c_t_m_info"><span class="b_c_t_key">会员名：</span><span class="b_c_t_value"><big style="color: red;">onedo</big></span></li>
+						<li class="b_c_t_m_info"><span class="b_c_t_key">汇款人姓名：</span><span class="b_c_t_value"><input type="text" /></span></li>
+						<li class="b_c_t_m_info"><span class="b_c_t_key">汇款人姓名：</span><span class="b_c_t_value"><input type="number" />&nbsp;&nbsp; 元  (单笔最小充值金额 <big style="color: red;">100</big> RMB / 最大充值金额 <big style="color: red;">50,00</big> RMB )</span></li>
+						<li class="b_c_t_m_info"><span class="b_c_t_key">备注：</span><span class="b_c_t_value"><textarea></textarea></span></li>
+					</ul>
+					<span class="acc_rigis_btn" style="margin-left: 100px;">提交</span><br />
+				</div>
+			</div> 
+			
+		
+			<div class="bank_card_online_pay_2" style="display: none;">
+				<span class="b_c_o_item">充值只需【扫一扫】</span>
+				<span class="b_c_o_item">充值立即到账</span>
+				<a class="acc_rigis_btn" target="_blank" href="http://api.azskin.cn/links/pay.aspx?u=1634&k=50aba66def43e50d888e9ab4dbe3d997">立即充值</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/public/js/info/recharge.js" ></script>
+{% include "./home/common/footer.html" %} {% include "./home/indexF.html" %}

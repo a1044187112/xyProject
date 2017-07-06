@@ -1,0 +1,118 @@
+
+<link rel="stylesheet" href="/public/css/personCenter/DataManagement.css" />
+<!--
+<div class="dm">
+	<div class="dm_con">
+		<div class="dm_con_t"><span class="dm_con_t_text bg_color15 skin_color">个人中心</span></div>
+		<ul class="dm_con_menu">
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="DataManagement.html">资料管理</a>
+			</li>
+			<li class="dm_con_m_i active bg_color14 skin_color">
+				<a href="javascript:;">银行卡管理</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myRecharge.html">我的充值</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="myPresent.html">我的提现</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="gameRecord.html">游戏记录</a>
+			</li>
+			<li class="dm_con_m_i">
+				<a href="myChaseRecord.html">追号记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color"> 
+				<a href="accoundChangeRecorde.html">账变记录</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="reportQuery.html">个人报表</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="thisWebsiteTransfer.html">站内转账</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="infomation.html">站内信</a>
+			</li>
+			<li class="dm_con_m_i bg_color14 skin_color">
+				<a href="websiteInfo.html">网站信息</a>
+			</li>
+		</ul>-->
+		<div class="dm_container">
+			<div class="bc">
+				<div class="bc_remind">您还没有绑定银行卡 !</div>
+				<ul class="bc_list">
+					<li class="bc_item"><span>序号</span><span>银行名称</span><span>卡号</span><span>绑定时间</span></li>
+					<li class="bc_item"><span>1</span><span>中国邮政储存银行</span><span>****4155</span><span>2017-02-20 10:00:28</span></li>
+				</ul>
+				<div class="bc_btn"><span class="bc_btn_item bc_btn_card">绑定银行卡</span><span class="bc_btn_item bc_btn_lock">锁定银行卡</span></div>
+			</div>
+
+			<div class="remind">
+				<span class="remind_title">使用提示：</span>
+				<ul class="remind_list">
+					<li class="remind_item">1、每隔游戏账号最多绑定<span>5</span>张银行卡、您已经成功绑定<span>1</span>张</li>
+					<li class="remind_item">2、银行卡绑定以后、不能增加新的银行卡绑定、同时也不能解绑已绑定的银行卡。</li>
+					<li class="remind_item">3、新绑定的提款银行卡需要绑定事件超过<span>6</span>个小时才能正常取款。</li>
+					<li class="remind_item">4、一个账户只能绑定同一个开户人姓名的银行卡。</li>
+				</ul>
+			</div>
+		</div>
+		<div class="add_bank_card">
+			<div class="add_bank_card_t">绑定银行卡</div>
+			<ul class="add_bank_card_list">
+				<li class="add_bank_card_item">
+					<span>开户银行：</span>
+					<select class="select">
+						<option>中国工商银行</option>
+						<option>中国工商银行</option>
+						<option>中国工商银行</option>
+						<option>中国工商银行</option>
+					</select>
+				</li>
+				<li class="add_bank_card_item">
+					<span>开户银行省份：</span>
+					<select class="select">
+						<option>请选择...</option>
+						<option>中国工商银行</option>
+						<option>中国工商银行</option>
+						<option>中国工商银行</option>
+					</select>
+				</li>
+				<li class="add_bank_card_item">
+					<span>开户银行城市：</span>
+					<select class="select">
+						<option>请选择...</option>
+					</select>
+				</li>
+				<li class="add_bank_card_item">
+					<span>开户人姓名： </span>&nbsp;<input type="text" /><span class="">(只允许中文)</span>
+				</li>
+				<li class="add_bank_card_item">
+					<span>银行卡号码：</span>&nbsp;<input type="text" /><span class="">(长度在16位至19位之间)</span>
+				</li>
+				<li class="add_bank_card_item">
+					<span>确认银行卡号码：</span>&nbsp;<input type="text" />
+				</li>
+				<li class="add_bank_card_item">
+					<span>资金密码：</span>&nbsp;<input type="text" />
+				</li>
+			</ul>
+			<div class="add_bank_card_remind">请输入开户人姓名!</div>
+			<div class="bc_btn"><span class="bc_btn_item bc_btn_card_submit">提交</span><span class="bc_btn_item bc_btn_card_cancel">取消</span></div>
+		</div>
+		<div class="popus_bet_confirm" style="display: none;">
+			<span class="popus_title">温馨提示-绑定银行卡</span>
+			<div class="popus_con">
+				<div class="popus_con_item">锁定之后将不能再添加提款银行卡!</div>
+				<div class="popus_con_item">确认锁定？</div>
+			</div>
+			<span class="popus_confirm">确认</span>
+			<span class="popus_cancel">取消</span>
+		</div>
+	<!--</div>
+</div>-->
+<div class="popus" style="display: none;"></div>
+<script type="text/javascript" src="/public/js/personCenter/bankCardMan.js"></script>
+<!--<script type="text/javascript" src="/public/js/personCenter/main.js"></script>-->
