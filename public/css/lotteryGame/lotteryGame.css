@@ -6,7 +6,7 @@
 	margin: 0;
 }
 .lottery_game{
-	background: url(/public/img/header/bg_green.jpg);
+	background: url(/xyProject/public/img/header/bg_green.jpg);
 	background-position: center 0;
 	background-repeat: no-repeat;
 	background-attachment:fixed;
@@ -60,7 +60,7 @@
 	height: 20px;
 	margin-left: 8px;
 	display: inline-block;
-	background: url(/public/img/lotteryGame/icon1.png);
+	background: url(/xyProject/public/img/lotteryGame/icon1.png);
 	background-position: -452px -76px;
 	vertical-align: middle;
 	margin-top: 0px;
@@ -69,7 +69,7 @@
 	width: 20px;
 	height: 20px;
 	display: inline-block;
-	background: url(/public/img/lotteryGame/icon1.png);
+	background: url(/xyProject/public/img/lotteryGame/icon1.png);
 	background-position: -398px -75px;
 	vertical-align: middle;
 	margin-top: 4px;
@@ -195,7 +195,7 @@
 	height: 25px;
 	width: 15px;
 	margin-right: 5px;
-	background: url(/public/img/lotteryGame/icon.png);
+	background: url(/xyProject/public/img/lotteryGame/icon.png);
 	background-position: -10px -30px;
 }
 .lot_h .lot_h_i .lot_h_intro{
@@ -307,7 +307,7 @@
 	margin-left: 0;
 }
 .lot_ball .lot_model .lot_b_i_i.active{
-	background: url(/public/img/lotteryGame/icon1.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon1.png) no-repeat;
 	background-position: -1002px -16px; 
 	border: 1px solid rgba(0,0,0,0) !important;
 }
@@ -347,7 +347,7 @@
 	margin-left: 10px !important;
 }
 .lot_ball .lot_model_3d .lot_model_i .lot_model_i_2.active{
-	background: url(/public/img/lotteryGame/icon1.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon1.png) no-repeat;
 	background-position: -1002px -16px; 
 	border: 1px solid rgba(0,0,0,0) !important;
 }
@@ -404,7 +404,7 @@
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	background: url(/public/img/lotteryGame/icon1.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon1.png) no-repeat;
 	background-position: -702px -25px;
 }
 .lot_num_sel .lot_b_i_intro .lot_b_i_i_item:nth-child(2){
@@ -429,7 +429,7 @@
 	left: 30px;
 	top: 14px;
 	z-index: 11;
-	background: url(/public/img/lotteryGame/icon.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon.png) no-repeat;
 	background-position: -86px -36px;	
 	display: none;
 }
@@ -518,14 +518,14 @@
 	border-radius: 50%;
 	text-align: center;
 	line-height: 40px;
-	background: url(/public/img/lotteryGame/icon.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon.png) no-repeat;
 	background-position: -192px -153px;
 	margin-left: 15px;
 	letter-spacing: 1px;
 	cursor: pointer;
 }
 .lot_num_sel .lot_b_i .lot_b_i_i .lot_b_i_i_1 .lot_b_i_i_num.active{
-	background: url(/public/img/lotteryGame/icon1.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon1.png) no-repeat;
 	background-position: -12px -11px;
 	color: white;
 }
@@ -616,7 +616,7 @@
 }
 .qu_wei .qu_wei_item{
 	display: inline-block;
-	background: url(/public/img/lotteryGame/qu_bg.png);
+	background: url(/xyProject/public/img/lotteryGame/qu_bg.png);
 	height: 60px;
 	width: 60px;
 	line-height: 60px;
@@ -629,7 +629,7 @@
 }
 
 .qu_wei .qu_wei_item.active{
-	background: url(/public/img/lotteryGame/qu_active.png);
+	background: url(/xyProject/public/img/lotteryGame/qu_active.png);
 	color: white;
 }
 
@@ -700,7 +700,7 @@
 	right: 0;
 	top: 0;
 	background: red;
-	background: url(/public/img/lotteryGame/jt.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/jt.png) no-repeat;
 	border-left: 1px solid #c6c6c6;
 	background-position: 6px 11px;
 	cursor: pointer;
@@ -835,7 +835,7 @@ input[type=number]::-webkit-outer-spin-button {
 	display: inline-block;
 	height: 38px;
 	width: 102px;
-	background: url(/public/img/lotteryGame/icon1.png);
+	background: url(/xyProject/public/img/lotteryGame/icon1.png);
 	margin-top: 5px;
 	font-size: 14px;
 	color: white;
@@ -948,7 +948,7 @@ input[type=number]::-webkit-outer-spin-button {
 .been_num .been_num_i .been_num_l .been_num_l_i .delete{
 	width: 30px;
 	height: 20px;
-	background: url(/public/img/lotteryGame/icon.png);
+	background: url(/xyProject/public/img/lotteryGame/icon.png);
 	background-position: -40px -31px;
 }
 .been_num .been_num_i .been_num_l .been_num_l_i:hover{
@@ -973,7 +973,7 @@ input[type=number]::-webkit-outer-spin-button {
 	display: block;
 	width: 80px;
 	height: 65px;
-	background: url(/public/img/lotteryGame/icon.png);
+	background: url(/xyProject/public/img/lotteryGame/icon.png);
 	background-position: -279px -153px;
 }
 .been_num_none .been_num_none_text{
@@ -1022,7 +1022,7 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: center;
 	line-height: 41px;
 	margin-right: -12px;
-	background: url(/public/img/lotteryGame/icon1.png) no-repeat;
+	background: url(/xyProject/public/img/lotteryGame/icon1.png) no-repeat;
 	background-position: -500px -10px;
 	margin-top: 11px;
 	cursor: pointer;
@@ -1046,7 +1046,7 @@ input[type=number]::-webkit-outer-spin-button {
 	height: 33px;
 	line-height: 33px;
 	text-align: center;
-	background: url(/public/img/lotteryGame/icon1.png);
+	background: url(/xyProject/public/img/lotteryGame/icon1.png);
 	font-size: 16px;
 	color: #fff;
 	cursor: pointer;
@@ -1257,7 +1257,7 @@ input[type=number]::-webkit-outer-spin-button {
 	vertical-align: middle;
 	border-radius: 50%;
 	display: inline-block;
-	background: url(/public/img/lotteryGame/icon.png);
+	background: url(/xyProject/public/img/lotteryGame/icon.png);
 	background-position: -54px -151px;
 	margin-right: 8px;
 }
@@ -1276,7 +1276,7 @@ input[type=number]::-webkit-outer-spin-button {
 	margin-bottom: 13px;
 }
 .popus_bet_success .poput_icon{
-	background: url(/public/img/lotteryGame/bet-success.png) no-repeat !important;
+	background: url(/xyProject/public/img/lotteryGame/bet-success.png) no-repeat !important;
 }
 
 .this_bet_been .popus_con,

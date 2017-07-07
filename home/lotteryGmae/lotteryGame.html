@@ -1,5 +1,5 @@
-{% include "./home/indexH.html" %}
-{% include "./home/common/header.html" %} 
+<!--#include virtual="/xyProject/home/indexH.html" -->
+<!--#include virtual="/xyProject/home/common/header.html" -->
 <style>
 	canvas {
 		background:#50ac87;
@@ -7,7 +7,7 @@
 		z-index:1;
 	}
 </style>
-		<link rel="stylesheet" href="/public/css/lotteryGame/lotteryGame.css" />  
+		<link rel="stylesheet" href="/xyProject/public/css/lotteryGame/lotteryGame.css" />  
 		<!--<link rel="stylesheet" href="/public/css/lotteryGame/site.min.css" />-->
 		<!--  彩票球部分  -->
 		<div class="lottery_game"> 
@@ -21,7 +21,7 @@
 							<canvas width="500" height="110" id="canvas" style="margin-top: -17px;"></canvas>
 						</div>
 					</div>
-					<div class="lot_h_i"><img id="lot_id" src="/public/img/lotteryGame/game_1.png"/>
+					<div class="lot_h_i"><img id="lot_id" src="/xyProject/public/img/lotteryGame/game_1.png"/>
 						<span class="lottery_missing_btn"><span class="lot_h_i_4_icon"></span>&nbsp;遗漏分析</span>   
 					</div>
 					<div class="lot_h_i" >
@@ -750,8 +750,8 @@
 	<div class="g_r_p_btn"><span>关闭</span></div>
 </div>
 <!-- 声音 -->
-<audio id="audio_time" style="display: none;" src="/public/audio/daoTime.wav"></audio>
-<audio id="audio_lot" style="display: none;" src="/public/audio/lotNum.wav"></audio>
+<audio id="audio_time" style="display: none;" src="/xyProject/public/audio/daoTime.wav"></audio>
+<audio id="audio_lot" style="display: none;" src="/xyProject/public/audio/lotNum.wav"></audio>
 
 <script>
  
@@ -767,14 +767,14 @@
 //		 S.init();
 //	},10000);
 </script>
-<script type="text/javascript" src="/public/js/lotteryGame/shape-shifter.js" ></script>
-<script type="text/javascript" src="/public/js/lotteryGame/lotteryNoteCal.js" ></script>
-<script src="/public/js/lotteryGame/changeLotteryPanel.js"></script>
-<script src="/public/js/lotteryGame/lotteryGame.js"></script>
-<script src="/public/js/lotteryGame/inputBetCal.js"></script>
+<script type="text/javascript" src="/xyProject/public/js/lotteryGame/shape-shifter.js" ></script>
+<script type="text/javascript" src="/xyProject/public/js/lotteryGame/lotteryNoteCal.js" ></script>
+<script src="/xyProject/public/js/lotteryGame/changeLotteryPanel.js"></script>
+<script src="/xyProject/public/js/lotteryGame/lotteryGame.js"></script>
+<script src="/xyProject/public/js/lotteryGame/inputBetCal.js"></script>
 <!--<script src="/public/js/lotteryGame/bundle.js"></script>-->
 
-<script type="text/javascript" src="/public/js/xingduole/xingduole.js" ></script>
+<script type="text/javascript" src="/xyProject/public/js/xingduole/xingduole.js" ></script>
 
 
 <script>
@@ -1162,21 +1162,23 @@ var Clock = (function() {
 				} else {
 					rePointType = "时时彩";
 				}
+				var  lotText = $(".lot_class_name").text();
 			$.ajax({
-				type: 'GET',
-				url:'/game/lottery/get-current-issue?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text(),
-				dataType: "json",
-				cache:false,
+				type: 'POST',
+				url:Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryNextInfo ",
+				dataType: "xml",
+				data:{LotteryId : "1"},
 				success: function(data) {  
+					data = JSON.parse($(data).find("string").text());
 					
-			        Clock.oHours = parseInt(data.left/(60*60)%24);//获取小时数 
+			        Clock.oHours = parseInt(parseInt(data[0].RemainderSeconds)/(60*60)%24);//获取小时数 
 			        
-			        Clock.oMinutes = parseInt(data.left/60%60); //获取分钟数
+			        Clock.oMinutes = parseInt(parseInt(data[0].RemainderSeconds)/60%60); //获取分钟数
 			        
-			        Clock.oSeconds = parseInt(data.left%60);//获取秒数
-			        
-			        $(".get_lot_date_issue").html("第"+data.expect+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投注截止时间：");
-					$(".lot_h_intro").html("第"+(data.expect-1)+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开奖结果："); 
+			        Clock.oSeconds = parseInt(parseInt(data[0].RemainderSeconds)%60);//获取秒数
+//			        
+			        $(".get_lot_date_issue").html("第"+data[0].Expect+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投注截止时间：");
+					$(".lot_h_intro").html("第"+(data[0].Expect-1)+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开奖结果："); 
 				},
 				error: function(e) {
 					console.log(e);
@@ -1252,6 +1254,5 @@ var Clock = (function() {
 };
 
 Clock.init('canvas');</script>
-{% include "./home/common/footer.html" %}
-
-{% include "./home/indexF.html" %}
+<!--#include virtual="/xyProject/home/common/footer.html" -->
+<!--#include virtual="/xyProject/home/indexF.html" -->

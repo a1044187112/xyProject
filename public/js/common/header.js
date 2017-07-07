@@ -10,6 +10,8 @@ var Header = {
 		Header.allAjax.ajaxInit();
 		
 		Header.timeout.init();
+		
+		Header.getClassId("重庆时时彩");
 	},
 	
 	timeout : {
@@ -220,6 +222,31 @@ var Header = {
 				Header.loadUserInfo(data);
 			}
 		},
+	},
+	
+	// 获取彩种编号
+	getClassId : function(test){
+		var id = "";
+		$.ajax({  // 获取倒计时时间
+				type: 'POST',
+				url: Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryList",
+				dataType: "xml",
+				success: function(data) {  
+					data = JSON.parse($(data).find("string").text());
+					console.log(data);
+			        $.each(data, function(i,item) {
+			        	if(test == item.LotteryName){
+			        		id = item.Id;
+			        		return id;
+			        	}
+			        });
+				},
+				error: function(e) {
+					console.log(e);
+				}
+			});
+			console.log(id);
+		return id;
 	},
 };
 Header.init();

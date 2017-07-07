@@ -215,28 +215,35 @@ var Home = {
 					data = JSON.parse($(data).find("string").text());
 					console.log(data);
 					$.each(data, function(i,item) {
+						var senonds = parseInt(item.RemainderSeconds);
 						$($(".c_p_l_l .c_p_l_i")[i]).find(".c_p_l_info span").text(item.Expect);;// 期号
-						
-						var startTime = new Date(); //定义当前时间
-			        
-				        var endTime = new Date(item.OpenTime);//定义结束时间
-				        
-				        //算出中间差并且已毫秒数返回; 除以1000将毫秒数转化成秒数方便运算；
-	        			var countDown = (endTime.getTime() - startTime.getTime())/1000;  
+//						
+//						var startTime = new Date(); //定义当前时间
+//			        
+//				        var endTime = new Date(item.OpenTime);//定义结束时间
+//				        
+//				        //算出中间差并且已毫秒数返回; 除以1000将毫秒数转化成秒数方便运算；
+//	        			var countDown = (endTime.getTime() - startTime.getTime())/1000;  
 	        			var itemArr = new Array();
-				        itemArr.push(parseInt(countDown/(60*60)%24));//获取小时数 
+//				        itemArr.push(parseInt(countDown/(60*60)%24));//获取小时数 
+//				        
+//				        itemArr.push(parseInt(countDown/60%60)); //获取分钟数
+//				        
+//				        itemArr.push( parseInt(countDown%60));//获取秒数
+						
+						itemArr.push(parseInt(senonds/(60*60)%24));//获取小时数 
+						
+				        itemArr.push(parseInt(senonds/60%60)); //获取分钟数
 				        
-				        itemArr.push(parseInt(countDown/60%60)); //获取分钟数
-				        
-				        itemArr.push( parseInt(countDown%60));//获取秒数
-				        
-//				        var step = 0;
-//				        if(data.config){
-//					        $.each(data.config,function(i,item){
-//					        	if(startTime.getHours()>=item.btime&&startTime.getHours()<=item.etime)
-//					        		step = item.step;
-//					        });
-//				        }
+				        itemArr.push( parseInt(senonds%60));//获取秒数
+//				        
+////				        var step = 0;
+////				        if(data.config){
+////					        $.each(data.config,function(i,item){
+////					        	if(startTime.getHours()>=item.btime&&startTime.getHours()<=item.etime)
+////					        		step = item.step;
+////					        });
+////				        }
 				        CountDown.cdCall(itemArr,$($(".c_p_l_l .c_p_l_i")[i]),10);
 					});
 			        

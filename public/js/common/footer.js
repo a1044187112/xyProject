@@ -54,59 +54,59 @@ var Footer = {
 	setLotLogo: function(lot_id) {
 		switch(lot_id) {
 			case "重庆时时彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_1.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_1.png");
 				$(".lot_des_text").text("彩种说明：5分钟，10分钟一期，共120期");
 				break;
 			case "天津时时彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_5.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_5.png");
 				$(".lot_des_text").text("彩种说明：10分钟一期，共84期");
 				break;
 			case "新疆时时彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_6.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_6.png");
 				$(".lot_des_text").text("彩种说明：10分钟一期，共96期");
 				break;
 			case "山东11选5":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_4.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_4.png");
 				$(".lot_des_text").text("彩种说明：10分钟一期，共87期");
 				break;
 			case "广东11选5":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_2.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_2.png");
 				$(".lot_des_text").text("彩种说明：10分钟一期，共84期");
 				break;
 			case "江西11选5":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_3.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_3.png");
 				$(".lot_des_text").text("彩种说明：10分钟一期，共78期");
 				break;
 			case "多乐11选5":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_11.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_11.png");
 				$(".lot_des_text").text("彩种说明：一分钟一期，共1380期");
 				break;
 			case "福彩3D":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_7.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_7.png");
 				$(".lot_des_text").text("彩种说明：每天一期");
 				break;
 			case "多乐秒秒彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_8.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_8.png");
 				$(".lot_des_text").text("彩种说明：即时开奖，下注成功即可开奖");
 				break;
 			case "多乐一分彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_14.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_14.png");
 				$(".lot_des_text").text("彩种说明：一分钟一期，共1380期");
 				break;
 			case "多乐三分彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_9.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_9.png");
 				$(".lot_des_text").text("彩种说明：三分钟一期，共460期");
 				break;
 			case "多乐五分彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_12.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_12.png");
 				$(".lot_des_text").text("彩种说明：五分钟一期，共276期");
 				break;
 			case "多乐十分彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_10.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_10.png");
 				$(".lot_des_text").text("彩种说明：十分钟一期，共138期");
 				break;
 			case "多乐1.5分彩":
-				$("#lot_id").attr("src", "/public/img/lotteryGame/game_13.png");
+				$("#lot_id").attr("src", "/xyProject/public/img/lotteryGame/game_13.png");
 				$(".lot_des_text").text("彩种说明：90秒一期，共920期");
 				break;
 		}
@@ -142,5 +142,9 @@ var Footer = {
 			});
 			$(".win_ano .win_ano_show_list ul").html(_html); 
 		},
+		
+		
+		
+		
 };
 Footer.init();

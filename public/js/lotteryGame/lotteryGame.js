@@ -1728,8 +1728,9 @@ var lotteryGme = {
 				} else {
 					rePointType = "时时彩";
 				}
-			var url = '/game/lottery/game-results?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text()+"&count=24";
-			lotteryGme.allAjax.allAjaxSub(url,lotteryGme.allAjax.gamelotteryRecordPro);
+			var url = Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryHistroyInfo";
+			var data = {Count:"24",LotteryId:"1"};
+			lotteryGme.allAjax.allAjaxSub(url,data,lotteryGme.allAjax.gamelotteryRecordPro);
 			setTimeout("lotteryGme.allAjax.gamelotteryRecordAjax()",5000);
 		},
 		
@@ -1777,13 +1778,13 @@ var lotteryGme = {
 		},
 		
 		
-		allAjaxSub : function(urlString,method){
+		allAjaxSub : function(urlString,data,method){
 			$.ajaxSetup({ cache: false }); 
 			$.ajax({
-				type: 'GET',
+				type: 'POST',
 				url: urlString,
-				dataType: "json",
-				cache:false,
+				dataType: "xml",
+				data:data,
 				success: function(data) { 
 					method(data);
 				},
@@ -1795,9 +1796,12 @@ var lotteryGme = {
 		
 		
 		gamelotteryRecordPro : function(data){
+			data = JSON.parse($(data).find("string").text());
+			console.log(data);
 			var _html = '';
+			var new_lot_num = new Array();
 			$.each(data, function(i,item) {
-				var lotNum = item.detail.substring(1,item.detail.length-1);
+				var lotNum = item.OpenCode;
 				var lotNumArr = lotNum.split(",");
 				var numLot  = "";
 				var lotClass = $(".lot_class_name").text(); // 如果是十一选五时  号码做处理
@@ -1813,12 +1817,12 @@ var lotteryGme = {
 							numLot += item + " ";
 					});
 				}
-				var text = item.date;
-				text = text.replace("-","");
-				text = text.replace("-","");
-				_html += '<li class="lot_rec_item"><span>'+item.issue+'</span><span>'+numLot.substring(0,numLot.length-1)+'</span></li>';
+				_html += '<li class="lot_rec_item"><span>'+item.Expect+'</span><span>'+numLot.substring(0,numLot.length-1)+'</span></li>';
 			});
 			$(".lot_rec_list").html(_html);
+			
+			new_lot_num = data[0].OpenCode.split(",");
+			$(".ui-input").val(new_lot_num[0]+" "+new_lot_num[1]+" "+new_lot_num[2]+" "+new_lot_num[3]+" "+new_lot_num[4]).trigger("click");
 		},
 		
 		personBetRecordPro : function(data){   //  个人投注记录
