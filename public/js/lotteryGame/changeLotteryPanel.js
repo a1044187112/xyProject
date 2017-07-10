@@ -4,11 +4,12 @@
 var changeLotteryPanel = {
 		panelShow: function($obj) {
 			$(".lot_num_input textarea").val("");
-			var lotClass = $(".lot_class_name").text();
-			if(lotClass == "福彩3D") {
+			var lotClass = $(".lot_class_name").attr("data-id");
+			console.log(lotClass);
+			if(lotClass == "7") {
 				$(".lot_num_input textarea").attr("placeholder","每一注号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开");
 				changeLotteryPanel.lotMenuClick.fc3d($obj);
-			} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
+			} else if(lotClass == "4" || lotClass == "5" || lotClass == "6" || lotClass == "14") {
 				$(".lot_num_input textarea").attr("placeholder","每注号码之间请使用逗号（，）、分号（；）或回车键隔开，每注内间隔使用空格即可。");
 				changeLotteryPanel.lotMenuClick.item11Sel5($obj);
 			} else {

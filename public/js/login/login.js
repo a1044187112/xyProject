@@ -5,6 +5,7 @@
 var Index = {
 	init: function() {
 		Index.ajaxUrl = 'http://192.168.0.120:8083';
+//		Index.ajaxUrl = 'http://192.168.56.1:8083';
 		
 		Index.genYanzm();// 生成验证码
 		
@@ -51,11 +52,11 @@ var Index = {
 					window.location.href = "home.html";
 				}
 				
-				if(data.redirect)
-					window.islogin = true;
-					userInfo = JSON.stringify(data.user);
-					document.cookie = userInfo;
-					redirect(data.redirect);
+//				if(data.redirect)
+//					window.islogin = true;
+//					userInfo = JSON.stringify(data.user);
+//					document.cookie = userInfo;
+//					redirect(data.redirect);
 			},
 			error: function(e) {
 				console.log(e);

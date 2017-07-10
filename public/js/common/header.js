@@ -34,9 +34,9 @@ var Header = {
 	},
 	
 	loadUserInfo: function(data) {
-		Header.rebate11X5 = data.AgentPercent11X5;  //用户返点信息
-		Header.rebateDPC = data.AgentPercentDPC;
-		Header.rebateSSC = data.AgentPercentSSC;
+		Header.rebate11X5 = data.AgentPercent11X5/100;  //用户返点信息
+		Header.rebateDPC = data.AgentPercentDPC/100;
+		Header.rebateSSC = data.AgentPercentSSC/100;
 		Header.moneyBalance = data.AccountBalance;
 		if(data.AccountName){
 			$(".user_name").text(data.AccountName);
@@ -227,13 +227,12 @@ var Header = {
 	// 获取彩种编号
 	getClassId : function(test){
 		var id = "";
-		$.ajax({  // 获取倒计时时间
+		$.ajax({  
 				type: 'POST',
 				url: Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryList",
 				dataType: "xml",
 				success: function(data) {  
 					data = JSON.parse($(data).find("string").text());
-					console.log(data);
 			        $.each(data, function(i,item) {
 			        	if(test == item.LotteryName){
 			        		id = item.Id;

@@ -5,7 +5,31 @@ var inputBetCal = {
 		var textVal_1 = inputBetCal.getEachNoteNumber(textVal); // 以|分隔输入的字符串
 		
 		var textVal_2 = inputBetCal.getEffectiveNum(textVal_1);// 获取有效注单
-		return textVal_2.substring(0,textVal_2.length-1);
+		
+		var lot_id = $(".lot_class_name").attr("data-id");
+		var num_text = "";
+		if(lot_id==4||lot_id==5||lot_id==6||lot_id==14){
+			if(textVal_2.indexOf("|")>0){  // 给得到的数据加上空格
+				var num_arr = textVal_2.split("|");
+				$.each(num_arr, function(i,item) {
+					for(var j = 0;j<item.length;j++){
+						num_text += item.substring(j*2,j*2+2) + ' ';
+					}
+					num_text = $.trim(num_text);
+					num_text +=  "|";
+				});
+			}else{
+				for(var j = 0;j<textVal_2.length/2;j++){
+					num_text += textVal_2.substring(j*2,j*2+2) + ' ';
+				}
+				num_text = $.trim(num_text);
+				
+			}
+			num_text = num_text.substring(0,num_text.length-2)
+		}else{
+			num_text = textVal_2.replace(/\|/g, ' ')
+		}
+		return num_text;
 		
 	},
 	getTextareaVal : function(){
@@ -68,7 +92,6 @@ var inputBetCal = {
 		if(textVal_1.indexOf("|")){
 			var textVal_arr = textVal_1.split("|");
 			$.each(textVal_arr,function(i,item){
-				console.log(item);
 				if(item.length == len){
 					inputBetCal.specailPro(item);// 如果是任选模式 重新计算注单
 				}

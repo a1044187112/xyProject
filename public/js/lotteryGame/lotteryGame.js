@@ -9,10 +9,10 @@ var getJson = {
 		var urlArr = url.split("?");
 		getJson.lotId = decodeURI(urlArr[1]);
 		
+		$(".lot_class_name").attr("data-id",getJson.lotId); // 更换当前显示的彩票名字
 		
-		$(".lot_class_name").html(getJson.lotId); // 更换当前显示的彩票名字
 		this.initLotData(); // load  json 数据
-		if(getJson.lotId=="福彩3D"){
+		if(getJson.lotId=="7"){
 			window.qiuNum = 3;
 		}else{
 			window.qiuNum = 5;
@@ -38,12 +38,12 @@ var getJson = {
 			var text = "";
 			$.each(item.item, function(i, item) {
 				if(index == 0) { // 十一选五 
-					text += item.val + ",";
+					text += item.val+"&"+item.id + ",";
 				}else { // 时时彩  3d
 //					console.log(item);
 					text += item.title + "?";
 					$.each(item.info, function(i, item) {
-						text += item.val + ",";
+						text += item.val+"&"+item.id + ",";
 					});
 					text = text.substring(0, text.length - 1);
 					text += "|";
@@ -62,11 +62,11 @@ var getJson = {
 		$(".lot_panel").css("display", "none");
 		$(".lot_model_3d").css("display", "none");
 		$(".lot_panel_3d").css("display", "none");
-		if(id == "山东11选5" || id == "广东11选5" || id == "江西11选5" || id == "多乐11选5") {
+		if(id == "4" || id == "5" || id == "6" || id == "14") {
 			$(".lot_model").css("display", "block"); // 显示十一选五面板
 			$(".lot_panel").css("display", "block");
 			return 0;
-		} else if(id == "福彩3D") {
+		} else if(id == "7") {
 			$(".lot_model_3d").css("display", "block");
 			$(".lot_panel_3d").css("display", "block");
 			return 1;
@@ -104,13 +104,12 @@ var lotteryGme = {
 		
 	},
 	bonusModelJisuan : function(){  
-		var text0 = 	$(".lot_b_i_intro .single_note_bonus").attr("data-id");
+		var text0 = $(".lot_b_i_intro .single_note_bonus").attr("data-id");
 		var bounsModel = $(".lot_b_i_s_i .lot_bonus").text()-0;  // 当前奖金模式
-		if(Header.rebate){
-			var rebeatData = JSON.parse(Header.rebate);
-			var lotClass = $(".lot_class_name").text();
-				if(lotClass == "福彩3D"){
-					lotteryGme.bounsModel = 1800+(rebeatData.时时彩*100-0)*20;
+		if(Header.rebate11X5||Header.rebateDPC||Header.rebateSSC){
+			var lotClass = $(".lot_class_name").attr("data-id");
+				if(lotClass == "7"){
+					lotteryGme.bounsModel = 1800+(Header.rebateDPC*100)*20;
 					var retPointer = lotteryGme.returnPointer(lotteryGme.bounsModel,20,1800);
 					if(((1800+retPointer*20)*text0/1800))
 						$(".lot_b_i_intro .single_note_bonus").text(((1800+retPointer*20)*text0/1800).toFixed(2));
@@ -118,8 +117,8 @@ var lotteryGme = {
 						$(".lot_b_i_intro .single_note_bonus").text("");
 					$(".lot_b_i_s_i .lot_bonus").text(((1800+retPointer*20)*1800/1800).toFixed(0));
 						console.log(text0); 
-				}else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5"){
-					lotteryGme.bounsModel = 1811+(rebeatData.十一选五*100-0)*19.8;
+				}else if(lotClass == "4" || lotClass == "5" || lotClass == "6" || lotClass == "14"){
+					lotteryGme.bounsModel = 1811+(Header.rebate11X5*100)*19.8;
 					var retPointer = lotteryGme.returnPointer(lotteryGme.bounsModel,19.8,1811);
 					if(((1811+retPointer*19.8)*text0/1811)) 
 						$(".lot_b_i_intro .single_note_bonus").text(((1811+retPointer*19.8)*text0/1811).toFixed(2));
@@ -127,7 +126,7 @@ var lotteryGme = {
 						$(".lot_b_i_intro .single_note_bonus").text("");
 					$(".lot_b_i_s_i .lot_bonus").text(((1811+retPointer*19.8)*1811/1811).toFixed(0));
 				}else{
-					lotteryGme.bounsModel = 1800+(rebeatData.低频彩*100-0)*20;
+					lotteryGme.bounsModel = 1800+(Header.rebateSSC*100)*20;
 					var retPointer = lotteryGme.returnPointer(lotteryGme.bounsModel,20,1800);
 					if(((1800+retPointer*20)*text0/1800))
 						$(".lot_b_i_intro .single_note_bonus").text(((1800+retPointer*20)*text0/1800).toFixed(2));
@@ -161,10 +160,10 @@ var lotteryGme = {
 		$("body").delegate(".lot_menu1 .lot_b_i_i", "click", function() {  //   彩票星数选择菜单
 				lotteryGme.methodSet.methodItem1($(".lot_menu1 .lot_b_i_i"), $(this));
 				lotteryGme.methodSet.getModelClass($(this).attr("data-id")); // 改变彩票选号类型的值
-				var lotClass = $(".lot_class_name").text();
-				if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
+				var lotClass = $(".lot_class_name").attr("data-id");
+				if(lotClass == "4" || lotClass == "5" || lotClass == "6" || lotClass == "14") {
 					changeLotteryPanel.panelShow($(".lot_model .active"));
-				} else if(lotClass == "福彩3D") {
+				} else if(lotClass == "7") {
 					changeLotteryPanel.panelShow($(".lot_model_3d .active"));
 				} else {
 					changeLotteryPanel.panelShow($(".lot_model_3d .active"));
@@ -348,9 +347,8 @@ var lotteryGme = {
 
 		// 立即投注按钮点击事件
 		$("body").delegate(".immediate_betting.disable", "click", function() {
-			var rebate = JSON.parse(Header.rebate);
 			
-			if(rebate.低频彩>=0.075 || rebate.十一选五>=0.075 || rebate.时时彩>=0.075){
+			if(Header.rebateDPC>=0.075 || Header.rebate11X5>=0.075 || Header.rebateSSC>=0.075){
 				lotteryGme.methodSet.popusBgInit($(".total_agent"));
 			}else{
 				if($(".total_money").text()>0.5||$(".lot_num_input").css("display")=="block"){
@@ -386,6 +384,7 @@ var lotteryGme = {
 				var reTotalMoney = rePoint * selnumArr.length*2;
 				$(".been_num_i_2_val").text(reTotalMoney+($(".been_num_i_2_val").text()-0));
 				
+				lotteryGme.methodSet.removeLotQiuActive(); // 移除所有彩票球 趣味 被选中的样式
 			} else if($(".lot_panel_3d").css("display") == "block") { //  3d 和时时彩
 				lotteryGme.lotteryBetting.addNumBetting();
 			} else if($(".lot_panel").css("display") == "block") { // 十一选五
@@ -436,8 +435,7 @@ var lotteryGme = {
 		});
 		// 确认投注
 		$("body").delegate(".been_num_i_1_confirm.disable", "click", function() {
-			var rebate = JSON.parse(Header.rebate);
-			if(rebate.低频彩>=0.075 || rebate.十一选五>=0.075 || rebate.时时彩>=0.075){
+			if(Header.rebateDPC>=0.075 || Header.rebate11X5>=0.075 || Header.rebateSSC>=0.075){
 				lotteryGme.methodSet.popusBgInit($(".total_agent"));
 				return ;
 			}
@@ -635,7 +633,8 @@ var lotteryGme = {
 						item_html += '<span class="lot_model_i_1">' + itemArr[0] + '</span>';
 						var itemSonArr = itemArr[1].split(",");
 						$.each(itemSonArr, function(i, item) {
-							item_html += '<span class="lot_model_i_2">' + item + '</span>';
+							var item_arr = item.split("&");
+							item_html += '<span class="lot_model_i_2" data-id='+item_arr[1]+'>' + item_arr[0] + '</span>';
 						});
 						_html += item_html;
 						_html += "</li>";
@@ -651,9 +650,9 @@ var lotteryGme = {
 					var _html = "";
 					$.each(dataArr, function(i, item) {
 						if(i == 0)
-							_html += '<li class="lot_b_i_i active">' + item + '</li>';
+							_html += '<li class="lot_b_i_i active" data-id='+item.split("&")[1]+'>' + item.split("&")[0] + '</li>';
 						else
-							_html += '<li class="lot_b_i_i">' + item + '</li>';
+							_html += '<li class="lot_b_i_i" data-id='+item.split("&")[1]+'>' + item.split("&")[0] + '</li>';
 					});
 					$(".lot_ball .lot_model").html(_html);
 					$(".lot_ball .lot_model").css("display", "block");
@@ -940,7 +939,9 @@ var lotteryGme = {
 	lotteryBetting: {
 		addNumBetting: function() {
 			var text0 = $(".lot_class_name").text();
+			var text0_id = $(".lot_class_name").attr("data-id");
 			var text1 = $(".lot_model .lot_b_i_i.active").text();
+			var text1_id = $(".lot_model .lot_b_i_i.active").attr("data-id");
 			var text2 = $(".lot_menu1 .lot_b_i_i.active").text();
 			if($(".lot_menu1_ssc").css("display")=="block")
 				text2 = $(".lot_menu1_ssc .lot_b_i_i.active").text();
@@ -948,11 +949,13 @@ var lotteryGme = {
 				if(text0 == "福彩3D") {
 					rePointType = "低频彩";
 					text1 = $(".lot_model_3d .lot_model_i_2.active").text();
+					text1_id = $(".lot_model_3d .lot_model_i_2.active").attr("data-id");
 				} else if(text0 == "山东11选5" || text0 == "广东11选5" || text0 == "江西11选5" || text0 == "多乐11选5") {
 					rePointType = "十一选五";
 				} else {
 					rePointType = "时时彩";
 					text1 = $(".lot_model_3d .lot_model_i_2.active").text();
+					text1_id = $(".lot_model_3d .lot_model_i_2.active").attr("data-id");
 				}
 			var betNum = lotteryGme.lotteryBetting.getSelNum();
 			if((text2 == "五星"&&text1=="直选复式")||(text2 == "五星"&&text1=="直选单式")||(text2 == "五星"&&text1=="五星组合")){
@@ -968,7 +971,7 @@ var lotteryGme = {
 					wei_arr.push(index);
 				}
 			});
-			var _html = '<li class="been_num_l_i" data-type="'+$(".this_return_pointer").attr("data-type")+'">' +
+			var _html = '<li class="been_num_l_i" data-f-id='+text0_id+' data-id='+text1_id+'  data-type="'+$(".this_return_pointer").attr("data-type")+'">' +
 				'<span class="been_num_l_item" data-arr="'+wei_arr.toString()+'" data-id="彩票/'+rePointType+'/' + text0 + '/' + text2 + '/' + text1 + '">' + text0 + '，' + text1 + '</span>' +
 				'<span class="been_num_l_item">' + betNum + '</span><span class="been_num_l_item" data-type="' + $(".money_model.active").attr("data-id") + '">' + $(".lot_bet_info .money_model.active").text() + '</span>' +
 				'<span class="been_num_l_item">' + $(".lot_b_i_s_2 .lot_b_i_s_info").text() + '注</span>' +
@@ -1241,12 +1244,16 @@ var lotteryGme = {
 		},
 
 		inputNumAdd: function(numText) { // 将单式选号添加到面板中
+			console.log(numText);
 			if(numText)
 				var numTextArr = numText.split("|");
 			var text0 = $(".lot_class_name ").text();
+			var text0_id = $(".lot_class_name").attr("data-id");
 			var text1 = $(".lot_model .lot_b_i_i.active").text();
+			var text1_id = $(".lot_model .lot_b_i_i.active").attr("data-id");
 			if($(".lot_model_3d").css("display") == "block"){
 				text1 = $(".lot_model_3d .lot_model_i_2.active").text();
+				text1_id = $(".lot_model_3d .lot_model_i_2.active").attr("data-id");
 			}
 			var wei_arr = new Array();  // 任选模式下 提交订单需要传递位数
 			$(".radio_sel input").each(function(){
@@ -1257,8 +1264,8 @@ var lotteryGme = {
 			});
 			var text2 = $(".lot_menu1 .lot_b_i_i.active").text();
 			var rePointType =  lotteryGme.submitBet.getThisLotGameName();
-			var _html = '<li class="been_num_l_i">' +
-				'<span class="been_num_l_item" data_arr="'+wei_arr.toString()+'" data-type="单式" data-id="彩票/'+rePointType+'/' + text0 + '/' + text2 + '/' + text1 + '">' + text0 + '，' + text1 + '</span>' +
+			var _html = '<li class="been_num_l_i" data-f-id='+text0_id+' data-id='+text1_id+'>' +
+				'<span class="been_num_l_item"   data_arr="'+wei_arr.toString()+'" data-type="单式" data-id="彩票/'+rePointType+'/' + text0 + '/' + text2 + '/' + text1 + '">' + text0 + '，' + text1 + '</span>' +
 				'<span class="been_num_l_item">' + numText + '</span><span class="been_num_l_item" data-type="' + $(".money_model.active").attr("data-id") + '">' + $(".lot_bet_info .money_model.active").text() + '</span>' +
 				'<span class="been_num_l_item">' + numTextArr.length+ '注</span>' +
 				'<span class="been_num_l_item">' + $(".lot_b_i_s_xiala .mu_val").val() + '倍</span>' +
@@ -1281,9 +1288,10 @@ var lotteryGme = {
 					if($(this).css("display") == "block") {
 						$(this).find(".lot_b_i_i_num").each(function() {
 							if($(this).hasClass("active")) {
-								lotBetNum += $(this).text();
+								lotBetNum += $(this).text()+" ";
 							}
 						});
+						lotBetNum = lotBetNum.substring(0,lotBetNum.length-1);
 						lotBetNum += "|";
 					}
 				});
@@ -1292,9 +1300,10 @@ var lotteryGme = {
 					if($(this).css("display") == "block") {
 						$(this).find(".lot_b_i_i_num").each(function() {
 							if($(this).hasClass("active")) {
-								lotBetNum += $(this).text();
+								lotBetNum += $(this).text()+" ";
 							}
 						});
+						lotBetNum = lotBetNum.substring(0,lotBetNum.length-1);
 						lotBetNum += "|";
 					}
 				});
@@ -1390,59 +1399,68 @@ var lotteryGme = {
 		getInfo: function() { // 获取信息    确认投注
 			//   type : "彩票/山东11选5/三码/前三直选复式",   传递参数的数据格式
 			//	 data : "[[],[],[],]",
+			var data_set = [];
 			$(".been_num .been_num_l .been_num_l_i:gt(0)").each(function() {
 				var betNumArr = lotteryGme.submitBet.getBetNumInfo($(this));
-				var isrebate = '';
+				var isrebate = false;
 				if($(this).attr("data-type")=="true")
 					isrebate = true;
-				var typeData = {
-					"multiple": parseInt($(this).find("span:nth-child(5)").text()),
-					"unit": $(this).find("span:nth-child(3)").attr("data-type") - 0,
-					"isrebate":isrebate
-				};
+
 				var text0 = $(this).find("span:first-child").attr("data-id").split("/")[2];
 				var text2 = $(this).find("span:first-child").attr("data-id").split("/")[3];
 				var text1 = $(this).find("span:first-child").attr("data-id").split("/")[4];
 				
-				var betNumArr = lotteryGme.submitBet.lijitouzhuArrayConversion(text0,text1,text2,betNumArr,true,$(this)); 	//  获取的数组是二维数组  有些部分只需要传递一维数组  点击确认投注按钮
+//				var betNumArr = lotteryGme.submitBet.lijitouzhuArrayConversion(text0,text1,text2,betNumArr,true,$(this)); 	//  获取的数组是二维数组  有些部分只需要传递一维数组  点击确认投注按钮
+				 
 				
+				
+				
+				var wei_arr = new Array();
 				if(text2=="任选二"||text2=="任选三"||text2=="任选四"){
 					if(text1!="直选复式"){
-						var wei_arr = $(this).find("span:first-child").attr("data-arr").split(",");
-						var temp_arr = new Array();
+						wei_arr = $(this).find("span:first-child").attr("data-arr").split(",");
 						temp_arr.push(wei_arr);
-						temp_arr.push(betNumArr);
-						betNumArr = temp_arr;
 					}
 				}
-				
-				var params = {
-					gametype: $(this).find("span:first-child").attr("data-id"),
-					data: JSON.stringify(betNumArr),
-					type: JSON.stringify(typeData)
+				var data = {
+						BetNum:betNumArr,
+						BetPlayTypeCode:$(this).attr("data-id"),
+						BetUnit:$(this).find("span:nth-child(4)").text().substring(0,$(this).find("span:nth-child(4)").text().length-1),
+						BetTimes:$(this).find("span:nth-child(5)").text().substring(0,$(this).find("span:nth-child(5)").text().length-1),
+						BetMoneyMode:$(this).find("span:nth-child(3)").text(),
+						BetMoney:$(this).find("span:nth-child(6)").text().substring(1,$(this).find("span:nth-child(6)").text().length),
+						ChoicePosition:wei_arr.toString(),
+						IsGetBackPercent:isrebate,
+				};
+				console.log(data);
+				data_set.push(data);
+			});
+			
+			var params = {
+					LotteryId: $(".lot_class_name").attr("data-id"), // 下注彩种id
+					Except:$(".get_lot_date_issue").attr("data-id"), // 下注期号
+					BetInfo:JSON.stringify(data_set),
 				};
 				lotteryGme.submitBet.betNumAjax(params);
-			});
 		},
 		
 		liJiTouZhu: function() { // 立即投注  
 			var text0 = $(".lot_class_name").text(); // 彩票类名
+			var text0_id = $(".lot_class_name").attr("data-id");
 			var text1 = $(".lot_model .lot_b_i_i.active").text();  // 选号类型
+			var text1_id = $(".lot_model .lot_b_i_i.active").attr("data-id");// 选号类型id
 			if(text0 == "山东11选5" || text0 == "广东11选5" || text0 == "江西11选5" || text0 == "多乐11选5") {
 			} else {
 				text1 = $(".lot_model_3d .lot_model_i_2.active").text();  // 选号类型
+				var text1_id = $(".lot_model_3d .lot_model_i_2.active").attr("data-id");// 选号类型id
 			}		
 			var text2 = $(".lot_menu1_ssc .lot_b_i_i.active").text();  //  选号才菜单 五星 四星
 			if($(".lot_menu1").css("display") == "block")
 				var text2 = $(".lot_menu1 .lot_b_i_i.active").text();  //  选号才菜单 五星 四星
-			var isrebate = '';
-			if($(".this_return_pointer").attr("data-type")=="true")
+			var isrebate = false;
+			if($(".this_return_pointer").attr("data-type")=="true") // 是否要返点
 				isrebate = true;
-			var typeData = {
-				"multiple": parseInt($(".lot_b_i_s_xiala .mu_val").val()),
-				"unit": $(".lot_bet_info .money_model.active").attr("data-id") - 0,
-				"isrebate":isrebate
-			};
+				
 			var rePointType =  lotteryGme.submitBet.getThisLotGameName();
 			if($(".lot_num_input").css("display")=="block"){  //如果是单式投注
 				lotteryGme.submitBet.lijitouzhuDanShi(text0,text1,text2,typeData);
@@ -1450,41 +1468,105 @@ var lotteryGme = {
 			}else{
 				var lotBetNum = lotteryGme.submitBet.lijitouzhuGetbetNum(rePointType); //  立即投注获取面板上选中的下注号码
 				
-				var numCount = 0;
-				if($(".lot_model .lot_b_i_i.active").text().indexOf("组选")>0&&$(".lot_model .lot_b_i_i.active").text().indexOf("胆拖")<0){
-					lotBetNum = lotBetNum[0];
-				}
+//				var numCount = 0;
+//				if($(".lot_model .lot_b_i_i.active").text().indexOf("组选")>0&&$(".lot_model .lot_b_i_i.active").text().indexOf("胆拖")<0){
+//					lotBetNum = lotBetNum[0];
+//				}
 				if((text2 == "五星"&&text1=="直选复式")||(text2 == "五星"&&text1=="直选单式")||(text2 == "五星"&&text1=="五星组合")){
 					if($(".lot_b_i_s_xiala .mu_val").val()>2){
 						alert(text1+"最大倍投数不能大于两倍");
 						return ;
 					}
 				}
-				var lotBetNum = lotteryGme.submitBet.lijitouzhuArrayConversion(text0,text1,text2,lotBetNum,false); 	//  获取的数组是二维数组  有些部分只需要传递一维数组  //点击立即投注按钮
+//				var lotBetNum = lotteryGme.submitBet.lijitouzhuArrayConversion(text0,text1,text2,lotBetNum,false); 	//  获取的数组是二维数组  有些部分只需要传递一维数组  //点击立即投注按钮
+				// 特殊号投注时
+				if(lotteryGme.submitBet.specialGetBetNum(text0_id,text1_id))
+					lotBetNum = lotteryGme.submitBet.specialGetBetNum(text0_id,text1_id);
+				var wei_arr = new Array();
 				if((text2=="任选二"||text2=="任选三"||text2=="任选四")&&text1!="直选复式"){
-					var wei_arr = new Array();
-					var temp_arr = new Array();
 					$(".radio_sel input").each(function(){
 						if($(this).prop("checked")){
 							var index = $(this).index(".radio_sel input");
 							wei_arr.push(index);
 						}
 					});
-					temp_arr.push(wei_arr);
-					temp_arr.push(lotBetNum);
-					lotBetNum = temp_arr;
 				}
+				var data = [{
+						BetNum:lotBetNum,
+						BetPlayTypeCode:text1_id,
+						BetUnit:$(".lot_b_i_s_info").text(),
+						BetTimes:$(".lot_b_i_s_xiala .mu_val").val(),
+						BetMoneyMode:$(".lot_b_i_s .money_model.active").text(),
+						BetMoney:$(".lot_b_i_s_2 .total_money").text(),
+						ChoicePosition:wei_arr.toString(),
+						IsGetBackPercent:isrebate,
+				}];
 				var params = {
-					gametype: "彩票/"+rePointType+"/" + text0 + "/" + text2 + "/" + text1,
-					data: JSON.stringify(lotBetNum),
-					type: JSON.stringify(typeData)
+					LotteryId: $(".lot_class_name").attr("data-id"), // 下注彩种id
+					Except:$(".get_lot_date_issue").attr("data-id"), // 下注期号
+					BetInfo:JSON.stringify(data),
 				};
+				
 				lotteryGme.submitBet.betNumAjax(params);
 			}
 			
 		},
+		specialGetBetNum : function(class_id,type_id){
+			var betNum = "";
+			if(class_id==4||class_id==5||class_id==6||class_id==14){
+				switch (type_id){
+					case "13":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-id")+" ";
+						});
+						break;
+				}
+			}else if(class_id==7){
+				
+			}else{
+				switch(type_id){
+					case "22":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-bj-repeat")+" ";
+						});
+					break;
+					case "23":betNum += "1";break;
+					case "24":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-bj-ds")+" ";
+						});
+					break;
+					case "25":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-bj-size")+" ";
+						});
+					break;
+					case "39":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-special")+" ";
+						});
+					break;
+					case "67":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-special")+" ";
+						});
+					break;
+					case "53":
+						$(".qu_wei .qu_wei_item.active").each(function(){
+							betNum += $(this).attr("data-ssc-special")+" ";
+						});
+					break;
+				}
+			}
+			
+			return $.trim(betNum);
+		},
+		
+		
+		
+		
 		lijitouzhuGetbetNum : function(rePointType){  //  立即投注获取面板上选中的下注号码
-			var lotBetNum = new Array();  // 获取要下注的号码
+			var lotBetNum = "";  // 获取要下注的号码
 			var betPanelSel = '';
 			if(rePointType == "低频彩") {
 				betPanelSel = $(".lot_panel_3d .lot_b_i_i");
@@ -1495,16 +1577,16 @@ var lotteryGme = {
 			}
 				betPanelSel.each(function() {
 					if($(this).css("display") == "block") {
-						var text = new Array();
+						var text = "";
 						$(this).find(".lot_b_i_i_num").each(function() {
 							if($(this).hasClass("active")) {
-								text.push(parseInt($(this).text()));
+								text += $(this).text()+" ";
 							}
 						});
-						lotBetNum.push(text);
+						lotBetNum+=text.substring(0,text.length-1)+"|";
 					}
 				});
-			return lotBetNum;
+			return lotBetNum.substring(0,lotBetNum.length-1);
 		},
 		
 		getThisLotGameName : function(){  //获取当前彩票名称
@@ -1599,44 +1681,44 @@ var lotteryGme = {
 		
 
 		getBetNumInfo: function($obj) {
-			var betNum = $obj.find("span:nth-child(2)").text();
-			var betNumArr = new Array();
-			var betNumArrC = new Array();
-			if(betNum.indexOf("|")>0)
-				betNumArrC = betNum.split("|");
-			else 
-				betNumArrC = betNum.split(",");
-			var lotClassText = $(".lot_class_name ").text();
-			if(lotClassText == "广东11选5" || lotClassText == "山东11选5" || lotClassText == "江西11选5" || lotClassText == "多乐11选5"){
-				$.each(betNumArrC, function(i, item) {
-					var numArr = new Array();
-					for(var j = 1; j <= item.length; j++) {
-						if(j % 2 == 0) {
-							numArr.push(parseInt(item.substring(j - 2, j)));
-						}
-					}
-					betNumArr.push(numArr);
-				});
-			}else{
-				if(betNum.indexOf("|")>0){
-					$.each(betNumArrC, function(i, item) {
-						var numArr = new Array();
-						for(var j = 1; j <= item.length; j++) {
-							numArr.push(parseInt(item.substring(j - 1, j)));
-						}
-						betNumArr.push(numArr);
-					});
-				}else{
-					$.each(betNumArrC, function(i, item) {
-						betNumArr.push(item);
-					});
-				}
-			}
-			var numCount = 0;
-			var typeText = $obj.find("span:nth-child(1)").text();
-			if($obj.find("span:nth-child(1)").text().indexOf("组选")>0&&typeText.indexOf("胆拖")<0&&typeText.indexOf("前三组选单式")<0&&typeText.indexOf("前二组选单式")<0){  // 如果下单是复式 需要多传递一个参数
-				betNumArr = betNumArr[0];
-			}
+			var betNumArr = $obj.find("span:nth-child(2)").text();
+//			var betNumArr = new Array();
+//			var betNumArrC = new Array();
+//			if(betNum.indexOf("|")>0)
+//				betNumArrC = betNum.split("|");
+//			else 
+//				betNumArrC = betNum.split(",");
+//			var lotClassText = $(".lot_class_name ").text();
+//			if(lotClassText == "广东11选5" || lotClassText == "山东11选5" || lotClassText == "江西11选5" || lotClassText == "多乐11选5"){
+//				$.each(betNumArrC, function(i, item) {
+//					var numArr = new Array();
+//					for(var j = 1; j <= item.length; j++) {
+//						if(j % 2 == 0) {
+//							numArr.push(parseInt(item.substring(j - 2, j)));
+//						}
+//					}
+//					betNumArr.push(numArr);
+//				});
+//			}else{
+//				if(betNum.indexOf("|")>0){
+//					$.each(betNumArrC, function(i, item) {
+//						var numArr = new Array();
+//						for(var j = 1; j <= item.length; j++) {
+//							numArr.push(parseInt(item.substring(j - 1, j)));
+//						}
+//						betNumArr.push(numArr);
+//					});
+//				}else{
+//					$.each(betNumArrC, function(i, item) {
+//						betNumArr.push(item);
+//					});
+//				}
+//			}
+//			var numCount = 0;
+//			var typeText = $obj.find("span:nth-child(1)").text();
+//			if($obj.find("span:nth-child(1)").text().indexOf("组选")>0&&typeText.indexOf("胆拖")<0&&typeText.indexOf("前三组选单式")<0&&typeText.indexOf("前二组选单式")<0){  // 如果下单是复式 需要多传递一个参数
+//				betNumArr = betNumArr[0];
+//			}
 			return betNumArr;
 		},
 
@@ -1644,8 +1726,8 @@ var lotteryGme = {
 			console.log(params);
 			$.ajax({
 				type: 'POST',
-				url: "/game/lottery/betting",
-				dataType: "json",
+				url: Header.ajaxUrl+"/WebService.asmx/Json_SendBetInfo",
+				dataType: "xml",
 				data: params,
 				success: function(data) {
 					console.log(data);
@@ -1680,54 +1762,37 @@ var lotteryGme = {
 			
 			
 			
-			lotteryGme.allAjax.getFirstLotteryNum(); // 刚开始进入网站时  先获取当前期的开奖号码
-			
-			lotteryGme.allAjax.getLotteryNum(); // 获取开奖期号
-			
-			lotteryGme.allAjax.getLotteryThisNum();  // 获取开奖信息
+//			lotteryGme.allAjax.getFirstLotteryNum(); // 刚开始进入网站时  先获取当前期的开奖号码
+//			
+//			lotteryGme.allAjax.getLotteryNum(); // 获取开奖期号
+//			
+//			lotteryGme.allAjax.getLotteryThisNum();  // 获取开奖信息
 			
 			
 		},
 		
 		personBetRecordAjax : function(){   //  个人投注记录
-			var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}
-			var data = {info:'{"gametype":"彩票"}'};
+			var lot_id = $(".lot_class_name").attr("data-id");
 			$.ajaxSetup({ cache: false }); 
 			$.ajax({
-				type: 'GET',
-				url: "/game/lottery/betting-records?date="+(new Date()).getTime(),
-				data:data,
-				dataType: "json",
+				type: 'POST',
+				url: Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryPlayInfo",
+				data:{LotteryId:parseInt(7)},
+				dataType: "xml",
 				cache:false,
 				success: function(data) { 
-					lotteryGme.allAjax.personBetRecordPro(data);
+					data = JSON.parse($(data).find("string").text());
+//					lotteryGme.allAjax.personBetRecordPro(data);
 				},
 				error: function(e) {
 					console.log(e);
 				}
 			});
-			setTimeout("lotteryGme.allAjax.personBetRecordAjax()",5000);
 		},
 		
 		// 游戏开奖记录 
 		gamelotteryRecordAjax : function(){
-			var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}
+			var lottery_id = $(".lot_class_name").attr("data-id");
 			var url = Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryHistroyInfo";
 			var data = {Count:"24",LotteryId:"1"};
 			lotteryGme.allAjax.allAjaxSub(url,data,lotteryGme.allAjax.gamelotteryRecordPro);
@@ -1737,42 +1802,18 @@ var lotteryGme = {
 		
 		getFirstLotteryNum : function(){
 			var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}	
 			var url = '/game/lottery/game-last-opened-result?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text();
 			lotteryGme.allAjax.allAjaxSub(url,lotteryGme.allAjax.getFirstLotteryNumPro);
 		},
 		
 		getLotteryNum : function(){
 			var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}	
 			var url = '/game/lottery/game-last-unopen-result?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text();
 			lotteryGme.allAjax.allAjaxSub(url,lotteryGme.allAjax.getLotteryPro);
 		},
 		
 		getLotteryThisNum : function(){
 			var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}	
 			var url = '/game/lottery/game-last-opened-result?gametype=彩票/'+rePointType+"/"+$(".lot_class_name").text();
 			lotteryGme.allAjax.allAjaxSub(url,lotteryGme.allAjax.getLotteryThisNumPro);
 		},
@@ -1797,7 +1838,6 @@ var lotteryGme = {
 		
 		gamelotteryRecordPro : function(data){
 			data = JSON.parse($(data).find("string").text());
-			console.log(data);
 			var _html = '';
 			var new_lot_num = new Array();
 			$.each(data, function(i,item) {

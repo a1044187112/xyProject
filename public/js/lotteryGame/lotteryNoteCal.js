@@ -371,10 +371,10 @@ var lotteryNoteCal = {
 		
 		zhixuan : function(){
 			var a = lotteryNoteCal.shishicai.zhixuanGetNumArr();
-			var data = game.lottery.betting_note.zhix1_m(a);
+			var data = game.lottery.betting_note.zhix1(a,1);
 			console.log(data);
 			if(data)
-				lotteryNoteCal.setPanelInfossc(data);
+				lotteryNoteCal.setPanelInfossc(data.length);
 			else
 				lotteryNoteCal.setPanelInfossc(0);
 		},

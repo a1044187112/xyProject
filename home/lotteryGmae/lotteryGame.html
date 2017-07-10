@@ -56,9 +56,9 @@
 					</ul>
 					 
 					<ul class="lot_b_i lot_menu1_ssc skin_color bg_color9" style="display: none;" style="height: 35px;">
-						<li class="lot_b_i_i" data-id="任二直选?直选复式,直选单式,直选和值|任二组选?组选复式,组选单式,组选和值">任选二</li>
-						<li class="lot_b_i_i" data-id="任三直选?直选复式,直选单式,直选和值|任三组选?组三复式,组三单式,组六复式,组六单式,混合组选,组选和值">任选三</li>
-						<li class="lot_b_i_i" data-id="任四直选?直选复式,直选单式|任四组选?组选24,组选12,组选6,组选4">任选四</li>
+						<li class="lot_b_i_i" data-id="任二直选?直选复式&96,直选单式&97,直选和值&98|任二组选?组选复式&99,组选单式&100,组选和值&101">任选二</li>
+						<li class="lot_b_i_i" data-id="任三直选?直选复式&102,直选单式&103,直选和值&104|任三组选?组三复式&105,组三单式&106,组六复式&107,组六单式&108,混合组选&109,组选和值&110">任选三</li>
+						<li class="lot_b_i_i" data-id="任四直选?直选复式&111,直选单式&112|任四组选?组选24&113,组选12&114,组选6&115,组选4&116">任选四</li>
 					</ul>
 					<div class="lot_ball_play_f skin_color bg_color9">
 						<span class="lot_ball_play_change  active">普选</span>
@@ -482,12 +482,12 @@
 						
 						<div class="qu_wei" >
 						<!--data-id  对应11选5 data-ssc-bj-repeat ssc  百家 重复号     data-ssc-bj-sz  ssc百家顺子   data-ssc-bj-ds 单双              data-ssc-bj-size="" 大小            -->
-							<span class="qu_wei_item" data-id="5" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">5单0双</span>
-							<span class="qu_wei_item" data-id="4" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">4单1双</span>
-							<span class="qu_wei_item" data-id="3" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">3单2双</span>
-							<span class="qu_wei_item" data-id="2" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">2单3双</span>
-							<span class="qu_wei_item" data-id="1" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">1单4双</span>
-							<span class="qu_wei_item" data-id="0" data-ssc-bj-repeat="" data-ssc-bj-sz="" data-ssc-bj-ds="" data-ssc-bj-size="">0单5双</span>
+							<span class="qu_wei_item" data-id="5" data-ssc-bj-repeat="5" data-ssc-bj-sz="" data-ssc-bj-ds="5" data-ssc-bj-size="5" data-ssc-special="3">5单0双</span>
+							<span class="qu_wei_item" data-id="4" data-ssc-bj-repeat="20" data-ssc-bj-sz="" data-ssc-bj-ds="0" data-ssc-bj-size="0" data-ssc-special="1">4单1双</span>
+							<span class="qu_wei_item" data-id="3" data-ssc-bj-repeat="10" data-ssc-bj-sz="" data-ssc-bj-ds="4" data-ssc-bj-size="4" data-ssc-special="2">3单2双</span>
+							<span class="qu_wei_item" data-id="2" data-ssc-bj-repeat="30" data-ssc-bj-sz="" data-ssc-bj-ds="1" data-ssc-bj-size="1">2单3双</span>
+							<span class="qu_wei_item" data-id="1" data-ssc-bj-repeat="60" data-ssc-bj-sz="" data-ssc-bj-ds="3" data-ssc-bj-size="3">1单4双</span>
+							<span class="qu_wei_item" data-id="0" data-ssc-bj-repeat="120" data-ssc-bj-sz="" data-ssc-bj-ds="2" data-ssc-bj-size="2">0单5双</span>
 						</div>
 				</div>
 					
@@ -1153,21 +1153,12 @@ var Clock = (function() {
   })();
   var getlotTime = function(){
     	// 获取当前时间
-            var lotClass = $(".lot_class_name").text();
-				var rePointType = "";
-				if(lotClass == "福彩3D") {
-					rePointType = "低频彩";
-				} else if(lotClass == "山东11选5" || lotClass == "广东11选5" || lotClass == "江西11选5" || lotClass == "多乐11选5") {
-					rePointType = "十一选五";
-				} else {
-					rePointType = "时时彩";
-				}
-				var  lotText = $(".lot_class_name").text();
+            var lotClass = $(".lot_class_name").attr("data-id");
 			$.ajax({
 				type: 'POST',
-				url:Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryNextInfo ",
+				url:Header.ajaxUrl+"/WebService.asmx/Json_GetLotteryNextInfo",
 				dataType: "xml",
-				data:{LotteryId : "1"},
+				data:{LotteryId : lotClass},
 				success: function(data) {  
 					data = JSON.parse($(data).find("string").text());
 					
@@ -1177,7 +1168,7 @@ var Clock = (function() {
 			        
 			        Clock.oSeconds = parseInt(parseInt(data[0].RemainderSeconds)%60);//获取秒数
 //			        
-			        $(".get_lot_date_issue").html("第"+data[0].Expect+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投注截止时间：");
+			        $(".get_lot_date_issue").html("第"+data[0].Expect+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;投注截止时间：").attr("data-id",data[0].Expect);
 					$(".lot_h_intro").html("第"+(data[0].Expect-1)+"期 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开奖结果："); 
 				},
 				error: function(e) {
